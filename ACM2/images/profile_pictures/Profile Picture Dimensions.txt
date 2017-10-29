@@ -1,0 +1,5 @@
+ACM Website
+About Us Team Card Pictures
+
+Please have all the profile pictures cropped to square aspect ratio,
+the width is 3 units wide, height is 2 units tall.
