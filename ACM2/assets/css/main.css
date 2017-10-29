@@ -4258,6 +4258,7 @@
 				}
 
 			#banner > article img {
+				top:100px;
 				display: none;
 			}
 
@@ -4298,6 +4299,7 @@
 		@media screen and (max-width: 980px) {
 
 			#banner {
+				
 				min-height: 50em;
 				height: 75vh;
 			}
