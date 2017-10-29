@@ -4657,6 +4657,10 @@
 			border-bottom:1px solid gray;
 			line-height: 1.2;
 		}
+		.compare-table td:not(.first-col) {
+			border-left:1px solid gray;
+		}
+
 		.member-type {
 			text-align: center;
 		}
