@@ -42,6 +42,9 @@
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
+		width: 90%;
+	    margin-left: auto;
+	    margin-right: auto;
 	}
 
 	body {
@@ -3013,23 +3016,23 @@
 	}
 
 		table tbody tr:nth-child(2n + 1) {
-			background-color: #f6f6f6;
+			/*background-color: #f6f6f6;*/
 		}
 
 	table th {
-		color: #444;
+		/*color: #444;*/
 	}
 
 	table thead {
-		border-bottom-color: #e6e6e6;
+		/*border-bottom-color: #e6e6e6;*/
 	}
 
 	table tfoot {
-		border-top-color: #e6e6e6;
+		/*border-top-color: #e6e6e6;*/
 	}
 
 	table.alt tbody tr td {
-		border-color: #e6e6e6;
+		/*border-color: #e6e6e6;*/
 	}
 
 /* Wrapper */
@@ -4576,8 +4579,9 @@
 
 		}
 
+		ul li { 
+		   list-style: none; 
+		   margin;
+		   padding:0;
+		}
 
-		div.absolute {
-	    top: : 1000px;
-	    float: top;
-		} 
