@@ -1933,6 +1933,7 @@
 		button.special,
 		.button.special {
 			box-shadow: none;
+			border-radius:5px;
 			background-color: #c15b05;
 			color: #fff !important;
 		}
@@ -4628,6 +4629,9 @@
 		}
 		.officer-title {
 			color: gray;
+			line-height: 1;
+			margin:0px;
+			margin-bottom:0.5em;
 		}
 		
 		#office-info {
@@ -4641,4 +4645,21 @@
 		}					
 		.officer-mailto:hover {
 			color:orange;
+		}
+		.checkmark {
+			vertical-align: middle;
+			text-align: center;
+		}
+		.perk-yes {
+			background-color: #eeeeee;
+		}
+		.compare-table td {
+			border-bottom:1px solid gray;
+			line-height: 1.2;
+		}
+		.member-type {
+			text-align: center;
+		}
+		.tiers {
+			font-weight: bold;
 		}
