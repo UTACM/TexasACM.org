@@ -58,17 +58,17 @@
 		<!-- One -->
 			<section id="one" class="wrapper major-pad">
 				<div class="inner">
-					<section class="spotlight">
+					<section class="spotlight" style="padding:0px 4%">
 						<div class="content">
 							<div style="text-align:center;">
-								<table>
+								<table >
 								  <tr >
 								    <th>Current Events</th>
 								    <th colspan="2">Upcoming Events</th>
 								  </tr>
 								  <tr>
-								    <td><iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></td>
-								    <td><iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=events&width=500&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></td>
+								    <td><iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></td>
+								    <td><iframe id="news-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></td>
 								  </tr>
 								</table>
 							</div>
@@ -127,6 +127,22 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">  //This Javascript code dynamically sets the size of the iFrames based on screen res.
+				var screenWidth = window.innerWidth;
+				iFrameWidth = parseInt(screenWidth*0.4);
+				iFrameHeight = parseInt(screenWidth*0.5);
+				var upcomingURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=timeline&width=" + iFrameWidth+"&height="+iFrameHeight+"&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
+				var newsURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=events&width="+iFrameWidth+"&height="+iFrameHeight+"&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
+				var upcomingiframe = document.getElementById("upcoming-iframe");
+				upcomingiframe.src = upcomingURL;
+				upcomingiframe.width = iFrameWidth;
+				upcomingiframe.height = iFrameHeight;
+				var newsiframe = document.getElementById("news-iframe");
+				newsiframe.src = newsURL;
+				newsiframe.width = iFrameWidth;
+				newsiframe.height = iFrameHeight;
+
+			</script>
 
 	</body>
 </html>
