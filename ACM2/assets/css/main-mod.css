@@ -1589,6 +1589,7 @@
 	body {
 		background-color: #fff;
 		color: #444;
+
 	}
 
 	body, input, select, textarea {
@@ -3739,7 +3740,7 @@
 /* Header */
 
 	body {
-		padding-top: 3.5em;
+		padding-top: 2.5em;
 	}
 
 	div:not([name="!body"]){
@@ -4375,13 +4376,12 @@
 
 	#footer {
 		padding: 0 0 0 0;
-		border-top: solid 1px #e6e6e6;
 		position: relative;
 		color: #c15b05;
 	}
 
 	#footer-iframe {
-	height: 7em;
+	height: 8em;
 	}
 
 		#footer > .inner {
