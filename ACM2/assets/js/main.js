@@ -334,7 +334,8 @@ var settings = {
 				$(
 					'<div id="navPanel">' +
 						'<nav>' +
-							$('#nav').navList() +
+							'<p>WHAT THE FUCK</p>' +
+							 '<iframe src="mobileheader.html" frameborder="0" scrolling="no"></iframe>' + 
 						'</nav>' +
 						'<a href="#navPanel" class="close"></a>' +
 					'</div>'
