@@ -4461,7 +4461,8 @@
 	}
 
 		#navPanel nav {
-			padding: 3em 2em;
+			/*padding: 3em 2em;*/
+			padding:0px 1em;
 		}
 
 		#navPanel .link {
@@ -4679,7 +4680,8 @@
 		.chk-img {
 			width:1.5em;
 		}
-		.mobile-header-div {
+		.mobile-header-iframe {
 			width:100%;
 			margin:0px;
+			height:80vh;
 		}
