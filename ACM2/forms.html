@@ -28,29 +28,38 @@
 	      window.addEventListener('DOMContentLoaded', init)
 
 	      function showInfo(data) {
-	      		var numberOfForms = data[0].NumFormsTotal;
-	      		var forms = new Array(numberOfForms);
-	      		var addresses = new Array(numberOfForms);
+	      		//var numberOfForms = data[0].NumFormsTotal;
+	      		var forms = [];
+	      		var addresses = [];
 	      		var found = false;
 	      		var desiredForm = (window.location.href).substring((window.location.href).indexOf('?') + 1 );
-	      		var index;
-	      		for (index = 0; index < numberOfForms && !found; index++) {
+	      		var index = 0;
+	      		while (data[index] != null && !(data[index].Address == "" && data[index].Name == "") && !found) {
 	      			forms[index] = data[index].Name;
 	      			addresses[index] = data[index].Address;
-	      			if (forms[index].toLowerCase()==desiredForm.toLowerCase()) {
+	      			if (forms[index].toLowerCase()==desiredForm.toLowerCase() && desiredForm != "") {
 	      				found = true;
 	      			}
+	      			index++;
 	      		}
+	      		var numberOfForms = index;
 	      		if (!found) {
 		      		var table = "<h1 style='text-align:left;''>Forms</h1><div id='forms-table-div' style='width:40%;margin:auto;''><table id='forms-table'><tr><th>Form Name</th><th>Address</th></tr>"
 					for (index = 0; index < numberOfForms; index++) {
-						table += "<tr><td>" + forms[index] + "</td><td><a href='"+addresses[index] + "'>Link</a></td></tr>";
+						if (forms[index] != "" && addresses[index] != "")
+						table += "<tr><td>" + forms[index] + "</td><td><a href='"+"form.html?"+forms[index] + "'>Link</a></td></tr>";
 					}
 					table += "</table></div>";
 					document.getElementById("dynamic").innerHTML = table;	        	
 	      		}
 	      		else {
-					document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='"+ addresses[index-1]+"'></iframe>";	        	
+	      			if (addresses[index-1]=="") {
+	      				document.getElementById("dynamic").innerHTML = "<h1>Sorry, Form not available</h1><p>The ACM staff has not specified the form " + desiredForm +"'s address. Please notify an officer and try again later. Thanks</p>";	  
+	      			}
+	      			else {
+	      				document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='"+ addresses[index-1]+"'></iframe>";	  
+	      			}
+					      	
 	      		}
 	      }
 			
