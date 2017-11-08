@@ -39,7 +39,6 @@
 	      			addresses[index] = data[index].Address;
 	      			if (forms[index].toLowerCase()==desiredForm.toLowerCase()) {
 	      				found = true;
-	      				//window.location.replace(addresses[index]);		
 	      			}
 	      		}
 	      		if (!found) {
@@ -53,10 +52,6 @@
 	      		else {
 					document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='"+ addresses[index-1]+"'></iframe>";	        	
 	      		}
-
-
-
-				//window.location.replace(data[0].Address);
 	      }
 			
 		</script>
@@ -75,8 +70,7 @@
 
 		<!-- Content -->
 							
-			<div class="inner" id="dynamic">
-			</div>
+			<div class="inner" id="dynamic"></div>
 			</section>
 
 
