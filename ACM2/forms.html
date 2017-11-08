@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<!--
+	Slate by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<title>Texas ACM | ProgComp Sign In</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script type="text/javascript" src="assets/js/tabletop.js"></script>
+		<script type="text/javascript">
+		
+	      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit?usp=sharing';
+
+	      function init() {
+	        Tabletop.init( { key: public_spreadsheet_url,
+	                         callback: showInfo,
+	                         simpleSheet: true } );
+	      }
+
+	      window.addEventListener('DOMContentLoaded', init)
+
+	      function showInfo(data) {
+	      		var numberOfForms = data[0].NumFormsTotal;
+	      		var forms = new Array(numberOfForms);
+	      		var addresses = new Array(numberOfForms);
+	      		var found = false;
+	      		var desiredForm = (window.location.href).substring((window.location.href).indexOf('?') + 1 );
+	      		var index;
+	      		for (index = 0; index < numberOfForms && !found; index++) {
+	      			forms[index] = data[index].Name;
+	      			addresses[index] = data[index].Address;
+	      			if (forms[index].toLowerCase()==desiredForm.toLowerCase()) {
+	      				found = true;
+	      				//window.location.replace(addresses[index]);		
+	      			}
+	      		}
+	      		if (!found) {
+		      		var table = "<h1 style='text-align:left;''>Forms</h1><div id='forms-table-div' style='width:40%;margin:auto;''><table id='forms-table'><tr><th>Form Name</th><th>Address</th></tr>"
+					for (index = 0; index < numberOfForms; index++) {
+						table += "<tr><td>" + forms[index] + "</td><td><a href='"+addresses[index] + "'>Link</a></td></tr>";
+					}
+					table += "</table></div>";
+					document.getElementById("dynamic").innerHTML = table;	        	
+	      		}
+	      		else {
+					document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='"+ addresses[index-1]+"'></iframe>";	        	
+	      		}
+
+
+
+				//window.location.replace(data[0].Address);
+	      }
+			
+		</script>
+	</head>
+	<body>
+
+
+			<!-- Header -->
+			<header id="header">
+				<iframe src="header.html?events" frameborder="0" scrolling="no" width="100%" id="header-iframe"></iframe>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<!--<div class="inner">-->
+
+		<!-- Content -->
+							
+			<div class="inner" id="dynamic">
+			</div>
+			</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<p class="copyright">© Association for Computing Machinery at the University of Texas at Austin 2017</p>
+					<ul class="menu">
+						<!-- <li><a href="#">Terms<span> of Use</span></a></li>
+						<li><a href="#">Privacy<span> Policy</span></a></li>
+						<li><a href="#">Legal<span> Information</span></a></li> -->
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
