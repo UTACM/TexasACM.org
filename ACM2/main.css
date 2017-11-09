@@ -1615,7 +1615,13 @@
 		text-decoration: none;
 		font-style: italic;
 	}
-	
+	#header a {
+		font-style: normal;
+	}
+	#mobile-header-body a {
+		border-bottom: none;
+		font-style: normal;
+	}
 
 		a:hover {
 			border-bottom-color: transparent;
@@ -4687,10 +4693,3 @@
 			margin:0px;
 			height:80vh;
 		}
-		#header a {
-		font-style: normal;
-	}
-	#mobile-header-body a {
-		border-bottom: none;
-		font-style: normal;
-	}
