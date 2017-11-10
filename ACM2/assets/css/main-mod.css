@@ -1612,8 +1612,9 @@
 		-webkit-transition: border-bottom-color 0.2s ease-in-out;
 		-ms-transition: border-bottom-color 0.2s ease-in-out;
 		transition: border-bottom-color 0.2s ease-in-out;
-		border-bottom: dotted 1px;
+		border-bottom: 1px solid orange;
 		text-decoration: none;
+/*		font-style: italic;*/
 	}
 
 		a:hover {
@@ -1635,7 +1636,7 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: "Raleway", Helvetica, sans-serif;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: 1em;
 		margin: 0 0 1.5em 0;
 		padding-bottom: 1.25em;
@@ -1650,7 +1651,7 @@
 			display: inline-block;
 			left: 0;
 			position: absolute;
-			width: 3rem;
+			width: 4vw;
 		}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
