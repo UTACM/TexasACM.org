@@ -53,6 +53,9 @@
 						table += "<tr><td>" + forms[index] + "</td><td><a href='"+"form.html?"+forms[index] + "'>Link</a></td></tr>";
 					}
 					table += "</table></div>";
+					if (desiredForm != "" && window.location.href.indexOf('?') != -1) {
+						table = "<p>The form <strong>" + desiredForm + "</strong> cannot be found. Here is a list of all forms:</p>" + table;
+					}
 					document.getElementById("dynamic").innerHTML = table;	        	
 	      		}
 	      		else {
