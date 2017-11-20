@@ -35,13 +35,17 @@ function showInfo(data) {
 		table = "<p>The form <strong>" + desiredForm + "</strong> cannot be found. Here is a list of all forms:</p>" + table;
 	}
 	document.getElementById("dynamic").innerHTML = table;	        	
+	document.title = "All Forms | Texas ACM";
 	}
 	else {
 		if (addresses[index-1]=="") {
 			document.getElementById("dynamic").innerHTML = "<h1>Sorry, Form not available</h1><p>The ACM staff has not specified the form " + desiredForm +"'s address. Please notify an officer and try again later. Thanks</p>";	  
+			document.title = "Form not Available | Texas ACM";
 		}
 		else {
 			document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='"+ addresses[index-1]+"'></iframe>";	  
+			document.title = desiredForm + " | Texas ACM";
+
 		}
 	}
 }
