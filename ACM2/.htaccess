@@ -4,3 +4,4 @@ Options +Indexes
 IndexOptions -FancyIndexing
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 RedirectMatch ^/forms/(.*)$ http://texasacm.org/form.html?$1
+RedirectMatch ^/forms http://texasacm.org/form.html
