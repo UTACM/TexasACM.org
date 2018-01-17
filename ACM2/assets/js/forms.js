@@ -25,7 +25,7 @@ function showInfo(data) {
 	}
 	var numberOfForms = index;
 	if (!found) {
-		var table = "<h1 style='text-align:left;''>Forms</h1><div id='forms-table-div' style='width:40%;margin:auto;''><table id='forms-table'><tr><th>Form Name</th><th>Address</th></tr>"
+		var table = '<h1 style="text-align:left;">Forms</h1><div id="forms-table-div" style="width:40%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>Form Name</th><th>Address</th></tr>'
 		for (index = 0; index < numberOfForms; index++) {
 			if (forms[index] != "" && addresses[index] != "")
 			table += "<tr><td>" + forms[index] + "</td><td><a href='"+"form.html?"+forms[index] + "'>Link</a></td></tr>";
