@@ -26,16 +26,16 @@ function showInfo(data) {
 	var numberOfForms = index;
 	if (!found) {
 		var table = "<h1 style='text-align:left;''>Forms</h1><div id='forms-table-div' style='width:40%;margin:auto;''><table id='forms-table'><tr><th>Form Name</th><th>Address</th></tr>"
-	for (index = 0; index < numberOfForms; index++) {
-		if (forms[index] != "" && addresses[index] != "")
-		table += "<tr><td>" + forms[index] + "</td><td><a href='"+"form.html?"+forms[index] + "'>Link</a></td></tr>";
-	}
-	table += "</table></div>";
-	if (desiredForm != "" && window.location.href.indexOf('?') != -1) {
-		table = "<p>The form <strong>" + desiredForm + "</strong> cannot be found. Here is a list of all forms:</p>" + table;
-	}
-	document.getElementById("dynamic").innerHTML = table;	        	
-	document.title = "All Forms | Texas ACM";
+		for (index = 0; index < numberOfForms; index++) {
+			if (forms[index] != "" && addresses[index] != "")
+			table += "<tr><td>" + forms[index] + "</td><td><a href='"+"form.html?"+forms[index] + "'>Link</a></td></tr>";
+		}
+		table += '</table><a href="https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit#gid=0"><button class="button admin" >Edit Forms List</button></a></div>';
+		if (desiredForm != "" && window.location.href.indexOf('?') != -1) {
+			table = "<p>The form <strong>" + desiredForm + "</strong> cannot be found. Here is a list of all forms:</p>" + table;
+		}
+		document.getElementById("dynamic").innerHTML = table;	        	
+		document.title = "All Forms | Texas ACM";
 	}
 	else {
 		if (addresses[index-1]=="") {

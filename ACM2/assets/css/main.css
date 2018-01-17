@@ -1941,6 +1941,7 @@
 			color: #fff !important;
 		}
 
+
 			input[type="submit"].special:hover,
 			input[type="reset"].special:hover,
 			input[type="button"].special:hover,
@@ -1954,6 +1955,19 @@
 			input[type="button"].special:active,
 			button.special:active,
 			.button.special:active {
+				background-color: #373737;
+			}
+
+			.button.admin {
+			box-shadow: none;
+			border-radius:5px;
+			background-color: #c8c8c8;
+			color: #fff !important;
+		}
+		.button.admin:hover {
+				background-color: #515151;
+			}
+			.button.admin:active {
 				background-color: #373737;
 			}
 
@@ -3963,7 +3977,7 @@
 				#header.alt input[type="reset"].special,
 				#header.alt input[type="button"].special,
 				#header.alt button.special,
-				#header.alt .button.special {
+				#header.alt .button.special{
 					box-shadow: none;
 					background-color: #fff;
 					color: #444 !important;
