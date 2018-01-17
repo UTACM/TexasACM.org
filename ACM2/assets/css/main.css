@@ -1961,11 +1961,11 @@
 			.button.admin {
 			box-shadow: none;
 			border-radius:5px;
-			background-color: #c8c8c8;
+			background-color: #f8f8f8;
 			color: #fff !important;
 		}
 		.button.admin:hover {
-				background-color: #515151;
+				background-color: #eaeaea;
 			}
 			.button.admin:active {
 				background-color: #373737;
