@@ -4732,3 +4732,6 @@
 		border-bottom: none;
 		font-style: normal;
 	}
+ .hideAnswer{
+ 	display: none;
+ }
