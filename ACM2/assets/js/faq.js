@@ -22,7 +22,7 @@ function showInfo(data) {
 	var numberOfEntries = index;
 	var faq = '<h2>Frequently Asked Questions</h2><div style="padding:0px 5%">';
 	for (var index = 0; index < numberOfEntries; index++) {
-		faq += '<h1 onClick="unhideAnswer(' + index + ')" style="cursor: pointer;">' + questions[index] + '</h1>';
+		faq += '<h1 class="faq_question" onClick="unhideAnswer(' + index + ')">' + questions[index] + '</h1>';
 		faq += '<p id="answer' + index + '" class="hideAnswer">' + answers[index] + '</p>';
 	}
 	document.getElementById("dynamic").innerHTML = faq;
@@ -34,10 +34,11 @@ function unhideAnswer(number) {
 	var answerID = "answer" + number;
 	if (answerID != unhiddenAnswer) {
 		document.getElementById(answerID).classList.remove("hideAnswer"); 
-		if (unhiddenAnswer != "")
-			document.getElementById(unhiddenAnswer).classList.add("hideAnswer");
-		unhiddenAnswer = answerID;
 	}
-	
-
+	if (unhiddenAnswer != "")
+		document.getElementById(unhiddenAnswer).classList.add("hideAnswer");
+	if (unhiddenAnswer == answerID)
+		unhiddenAnswer = ""
+	else
+		unhiddenAnswer = answerID;
 }

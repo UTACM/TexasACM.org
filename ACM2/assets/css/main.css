@@ -4732,6 +4732,12 @@
 		border-bottom: none;
 		font-style: normal;
 	}
- .hideAnswer{
+ .hideAnswer {
  	display: none;
+ }
+ .faq_question {
+ 	cursor: pointer;
+ }
+ .faq_question:Hover {
+ 	color:#c15b05;
  }
