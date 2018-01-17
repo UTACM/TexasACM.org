@@ -30,7 +30,7 @@ function showInfo(data) {
 			if (forms[index] != "" && addresses[index] != "")
 			table += "<tr><td>" + forms[index] + "</td><td><a href='"+"form.html?"+forms[index] + "'>Link</a></td></tr>";
 		}
-		table += '</table><a href="https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit#gid=0"><button class="button admin" >Edit Forms List</button></a></div>';
+		table += '</table><a style="border-bottom: none" href="https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit#gid=0"><button class="button admin" >Edit Forms List</button></a></div>';
 		if (desiredForm != "" && window.location.href.indexOf('?') != -1) {
 			table = "<p>The form <strong>" + desiredForm + "</strong> cannot be found. Here is a list of all forms:</p>" + table;
 		}
