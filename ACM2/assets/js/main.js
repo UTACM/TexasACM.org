@@ -330,11 +330,13 @@ var settings = {
 				$('<a href="#navPanel" class="navPanelToggle"></a>')
 					.appendTo($header);
 
+			var url = document.getElementById("header-iframe").src;
+			var queryString = url.substring(url.indexOf('?') + 1 );
 			// Navigation Panel.
 				$(
 					'<div id="navPanel">' +
 						'<nav>' +
-							 '<iframe src="mobileheader.html" frameborder="0" scrolling="no" class="mobile-header-iframe"></iframe>' + 
+							 '<iframe src="mobileheader.html?' + queryString + '" frameborder="0" scrolling="no" class="mobile-header-iframe"></iframe>' + 
 						'</nav>' +
 						'<a href="#navPanel" class="close"></a>' +
 					'</div>'
