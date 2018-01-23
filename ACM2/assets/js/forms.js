@@ -25,10 +25,10 @@ function showInfo(data) {
 	}
 	var numberOfForms = index;
 	if (!found) {
-		var table = '<h1 style="text-align:left;">Forms</h1><div id="forms-table-div" style="width:30%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>List of Available Forms</th></tr>'
+		var table = '<h1 style="text-align:left;">Forms</h1><div id="forms-table-div" style="width:40%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>Form Name</th><th>Address</th></tr>'
 		for (index = 0; index < numberOfForms; index++) {
 			if (forms[index] != "" && addresses[index] != "")
-			table += "<tr><td><a href='"+"form.html?"+forms[index] + "'>" + forms[index] + "</td></a></td></tr>";
+			table += "<tr><td>" + forms[index] + "</td><td><a href='"+"form.html?"+forms[index] + "'>Link</a></td></tr>";
 		}
 		table += '</table><a style="border-bottom: none" href="https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit#gid=0"><button class="button admin">Edit Forms List</button></a></div>';
 		if (desiredForm != "" && window.location.href.indexOf('?') != -1) {
