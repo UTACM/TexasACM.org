@@ -1,3 +1,5 @@
+// Use of this Script Requires the Tabletop.js Library. The Calling HTML File must include tabletop.js
+
 // Address of the Google Sheets Database
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit?usp=sharing';
 
