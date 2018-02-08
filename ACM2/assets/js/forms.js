@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', init)	// Calls method init when Shee
 function showInfo(data) {
 	var forms = [];
 	var addresses = [];
+	var imbedInACM = [];
 	var found = false;
 	// Desired Form = query string, aka string after "?" in url
 	var desiredForm = (window.location.href).substring((window.location.href).indexOf('?') + 1 );
@@ -23,6 +24,7 @@ function showInfo(data) {
 	while (data[index] != null && !(data[index].Address == "" && data[index].Name == "") && !found) {
 		forms[index] = data[index].Name;
 		addresses[index] = data[index].Address;
+		imbedInACM[index] = embedInACMorNot(data[index].EmbedInACM);
 		if (forms[index].toLowerCase()==desiredForm.toLowerCase() && desiredForm != "") {
 			found = true;
 		}
@@ -41,8 +43,8 @@ function showInfo(data) {
 		// Builds the Table of all forms. 
 		table += '<h1 style="text-align:left;">Forms</h1><div id="forms-table-div" style="width:30%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>List of Available Forms</th></tr>'
 		for (index = 0; index < numberOfForms; index++) {
-			if (forms[index] != "" && addresses[index] != "")
-			table += "<tr><td><a href='"+"form.html?"+forms[index] + "'>" + forms[index] + "</td></a></td></tr>";
+			if (forms[index] != "" && addresses[index] != "") 
+				table += "<tr><td><a href='"+"form.html?"+forms[index] + "'>" + forms[index] + "</td></a></td></tr>";
 		}
 		table += '</table>';
 		// Adds the Edit button under the table
@@ -60,10 +62,34 @@ function showInfo(data) {
 			document.getElementById("dynamic").innerHTML = "<h1>Sorry, Form not available</h1><p>The ACM staff has not specified the form " + desiredForm +"'s address. Please notify an officer and try again later. Thanks</p>";	  
 			document.title = "Form not Available | Texas ACM";
 		}
-		// If the desired form exists in Database, and address exists, then show the form in an iframe
+		// If the desired form exists in Database
 		else {
-			document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='"+ addresses[index-1]+"'></iframe>";	  
-			document.title = desiredForm + " | Texas ACM";
+			// if EmbedInACM is true, embed the form in an iFrame
+			if (imbedInACM[index-1]) {
+				document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='"+ addresses[index-1]+"'></iframe>";	  
+				document.title = desiredForm + " | Texas ACM";
+			}
+			// if EmbedInACM is false, imbedInACM directly to URL
+			else {
+				window.location.replace(addresses[index-1]);
+			}
+
+			
+
+
 		}
 	}
+}
+
+//Checks the cell to see if it says "no"
+function embedInACMorNot(cell) {
+	if (!cell=="") {
+		if (cell.charAt(0)=='N'||cell.charAt(0)=='n')
+			return false;
+		else
+			return true;
+	} else {
+		return true;
+	}
+
 }
