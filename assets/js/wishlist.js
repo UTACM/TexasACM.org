@@ -16,7 +16,7 @@ function showInfo(data) {
 
 	
 	var index = 0;
-	var table = '<h1 style="text-align:left;">Forms</h1><div id="forms-table-div" style="width:30%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>Wishlist</th><th>Deadline</th></tr>';
+	var table = '<h1 style="text-align:left;">Wishlist</h1><div id="forms-table-div" style="width:30%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>Items</th><th>Deadline</th></tr>';
 	//Builds the Forms and Addresses arrays using the Google Sheets Data
 	while (data[index]) {
 		if ((data[index].Finished == "")) 
