@@ -44,7 +44,7 @@ function showInfo(data) {
 		table += '<h1 style="text-align:left;">Forms</h1><div id="forms-table-div" style="width:30%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>List of Available Forms</th></tr>'
 		for (index = 0; index < numberOfForms; index++) {
 			if (forms[index] != "" && addresses[index] != "") 
-				table += "<tr><td><a href='"+"form.html?"+forms[index] + "'>" + forms[index] + "</td></a></td></tr>";
+				table += "<tr><td><a href='"+"forms.html?"+forms[index] + "'>" + forms[index] + "</td></a></td></tr>";
 		}
 		table += '</table>';
 		// Adds the Edit button under the table
