@@ -26,7 +26,7 @@ function showInfo(data) {
 	table += '</table>';
 	// Adds the Edit button under the table
 	table += '<center><a style="border-bottom: none" href="https://docs.google.com/spreadsheets/d/1F-N9gMW9QjU756B72PgiYQRjeA9qd5vrmXDWqmEn_GQ/edit#gid=41231222" target="_blank"><button class="button admin">Mark Completed</button></a><br><br>';
-	table += '<a style="border-bottom: none" href="form.html?wishlist" target="_blank"><button class="button special">Submit new Request</button></a></center>';
+	table += '<a style="border-bottom: none" href="forms.html?wishlist" target="_blank"><button class="button special">Submit new Request</button></a></center>';
 	table += '</div>';
 	
 	document.getElementById("dynamic").innerHTML = table;			
