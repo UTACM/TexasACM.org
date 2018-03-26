@@ -16,11 +16,11 @@ function showInfo(data) {
 
 	
 	var index = 0;
-	var table = '<h1 style="text-align:left;">Wishlist</h1><div id="forms-table-div" style="width:30%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>Items</th><th>Deadline</th></tr>';
+	var table = '<h1 style="text-align:left;">Wishlist</h1><div id="forms-table-div" style="width:80%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>Priority</th><th>Items</th><th>Deadline</th><th>Justification</th></tr>';
 	//Builds the Forms and Addresses arrays using the Google Sheets Data
 	while (data[index]) {
 		if ((data[index].Finished == "")) 
-				table += "<tr><td><a href='"+data[index].AmazonURL + "'>" + data[index].Item + "</td></a><td>" + data[index].Deadline + "</td></td></tr>";
+				table += "<tr><td>" + data[index].Importance + "</td><td><a href='"+data[index].AmazonURL + "'>" + data[index].Item + "</td></a><td>" + data[index].Deadline + "</td></td><td><button class='button special' aria-label='" + data[index].Justification + "' onclick='showTT(this)' onmouseout='hideTT(this)'>Show</button></td></tr>";
 		index++;
 	}
 	table += '</table>';
