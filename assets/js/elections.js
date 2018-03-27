@@ -15,15 +15,15 @@ window.addEventListener('DOMContentLoaded', init)	// Calls method init when Shee
 function showInfo(data) {
 	//Note: If the column name is multiword, that is fine, since
 	//data[0].Name === data[0]["Name"]. So, you can write: data[0]["First Name"]
-	var presidential_table = "a<br/>b";
-	var hr_table = "b";
-	var corporate_table = "c";
-	var internal_table = "d";
-	var academics_table = "e";
-	var finance_table = "f";
-	var social_table = "g";
-	var web_table = "h";
-	var cp_table = "i";
+	var presidential_table = "Not yet available...";
+	var hr_table = "Not yet available...";
+	var corporate_table = "Not yet available...";
+	var internal_table = "Not yet available...";
+	var academics_table = "Not yet available...";
+	var finance_table = "Not yet available...";
+	var social_table = "Not yet available...";
+	var web_table = "Not yet available...";
+	var cp_table = "Not yet available...";
 	document.getElementById("pres_candidates").innerHTML = presidential_table;
 	document.getElementById("hr_candidates").innerHTML = hr_table;
 	document.getElementById("corporate_candidates").innerHTML = corporate_table;
