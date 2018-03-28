@@ -14,16 +14,110 @@ window.addEventListener('DOMContentLoaded', init)	// Calls method init when Shee
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
 	//Note: If the column name is multiword, that is fine, since
-	//data[0].Name === data[0]["Name"]. So, you can write: data[0]["First Name"]
-	var presidential_table = "Not yet available...";
-	var hr_table = "Not yet available...";
-	var corporate_table = "Not yet available...";
-	var internal_table = "Not yet available...";
-	var academics_table = "Not yet available...";
-	var finance_table = "Not yet available...";
-	var social_table = "Not yet available...";
-	var web_table = "Not yet available...";
-	var cp_table = "Not yet available...";
+	// data[0].Name === data[0]["Name"]. So, you can write: data[0]["First Name"]
+	// var presidential_table = "Not yet available...";
+	// var hr_table = "Not yet available...";
+	// var corporate_table = "Not yet available...";
+	// var internal_table = "Not yet available...";
+	// var academics_table = "Not yet available...";
+	// var finance_table = "Not yet available...";
+	// var social_table = "Not yet available...";
+	// var web_table = "Not yet available...";
+	// var cp_table = "Not yet available...";
+
+	var presidential_table = "";
+	var hr_table = "";
+	var corporate_table = "";
+	var internal_table = "";
+	var academics_table = "";
+	var finance_table = "";
+	var social_table = "";
+	var web_table = "";
+	var cp_table = "";
+	var index = 0;
+	var testing = "";
+
+
+	// alert("A");
+	// alert(data[0]["SO Position"].includes("President")===true);
+	while (data[index] != null) {
+		var firstName = data[index]['First Name'];
+		var lastName = data[index]["Last Name"];
+		var officerPos = data[index]["SO Position"];
+		var qualifications = data[index]["Qualifications"];
+		var platform = data[index]["Officer Platform"];
+		var misc = data[index]["Is there anything else you'd like us to know?"];
+
+		if (data[index]["SO Position"].includes("President")===true) {
+			presidential_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+		if (data[index]["SO Position"].includes("Human Resources")===true) {
+			hr_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+		if (data[index]["SO Position"].includes("Corporate")===true) {
+			corporate_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+		if (data[index]["SO Position"].includes("Internal")===true) {
+			internal_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+		if (data[index]["SO Position"].includes("Academics")===true) {
+			academics_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+		if (data[index]["SO Position"].includes("Finance")===true) {
+			finance_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+		if (data[index]["SO Position"].includes("Social")===true) {
+			social_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+		if (data[index]["SO Position"].includes("Webmaster")===true) {
+			web_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+		if (data[index]["SO Position"].includes("Competitive Programming")===true) {
+			cp_table += '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<p>' + platform + '</p>'
+			+ '<p>' + misc + '</p>'
+			+ '<p>' + qualifications + '</p><br>';
+		}
+
+		// Writes HTML code based on Form responses
+		// alert(webURL[index] == undefined);
+		// link = "";
+		// link = webURL[index];
+
+		// testing += '<h3>' + firstName + " " + lastName + '</h3>' 
+		// + '<p>' + platform + '</p>'
+		// + '<p>' + misc + '</p>'
+		// + '<p>' + qualifications + '</p>';
+
+
+		index++;
+	}
+
+	// document.getElementById("testing").innerHTML = testing;
 	document.getElementById("pres_candidates").innerHTML = presidential_table;
 	document.getElementById("hr_candidates").innerHTML = hr_table;
 	document.getElementById("corporate_candidates").innerHTML = corporate_table;
