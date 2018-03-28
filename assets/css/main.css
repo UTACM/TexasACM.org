@@ -4741,3 +4741,7 @@
  .faq_question:Hover {
  	color:#c15b05;
  }
+
+#candidatesDiv div {
+	padding-left: 2em;
+}
