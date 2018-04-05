@@ -48,59 +48,41 @@ function showInfo(data) {
 		var platform = data[index]["Officer Platform"];
 		var misc = data[index]["Is there anything else you'd like us to know?"];
 
+		var internalContent = '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<strong>Qualifications</strong>'
+			+ '<p>' + qualifications.replace('\n', "<br />") + '</p>'
+			+ '<strong>Platform</strong>'
+			+ '<p>' + platform.replace('\n', "<br />") + '</p>'
+			+ '<strong>Other things to know</strong>'
+			+ '<p>' + misc.replace('\n', "<br />") + '</p>'
+			+ '<br>';
+
 		if (data[index]["SO Position"].includes("President")===true) {
-			presidential_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			presidential_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Human Resources")===true) {
-			hr_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			hr_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Corporate")===true) {
-			corporate_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			corporate_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Internal")===true) {
-			internal_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			internal_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Academics")===true) {
-			academics_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			academics_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Finance")===true) {
-			finance_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			finance_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Social")===true) {
-			social_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			social_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Webmaster")===true) {
-			web_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			web_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Competitive Programming")===true) {
-			cp_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			cp_table += internalContent;
 		}
 
 		// Writes HTML code based on Form responses
