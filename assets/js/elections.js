@@ -47,15 +47,21 @@ function showInfo(data) {
 		var qualifications = data[index]["Qualifications"];
 		var platform = data[index]["Officer Platform"];
 		var misc = data[index]["Is there anything else you'd like us to know?"];
+		var order = data[index]["Position Preferences"];
 
 		var internalContent = '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<div style="padding-left: 2%; padding-right: 2%">'
 			+ '<strong>Qualifications</strong>'
-			+ '<p>' + qualifications.replace('\n', "<br />") + '</p>'
+			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + qualifications.replace('\n', "<br />") + '</p></div>'
 			+ '<strong>Platform</strong>'
-			+ '<p>' + platform.replace('\n', "<br />") + '</p>'
-			+ '<strong>Other things to know</strong>'
-			+ '<p>' + misc.replace('\n', "<br />") + '</p>'
-			+ '<br>';
+			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + platform.replace('\n', "<br />") + '</p></div>';
+		if (misc.length > 0)
+			internalContent += '<strong>Other things to know</strong>'
+			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + misc.replace('\n', "<br />") + '</p></div>';
+		if (order.length > 0)
+			internalContent += '<strong>Position Preferences</strong>'
+			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + order + '</p></div>';
+		internalContent += '<br></div>';
 
 		if (data[index]["SO Position"].includes("President")===true) {
 			presidential_table += internalContent;
@@ -84,6 +90,7 @@ function showInfo(data) {
 		if (data[index]["SO Position"].includes("Competitive Programming")===true) {
 			cp_table += internalContent;
 		}
+
 
 		// Writes HTML code based on Form responses
 		// alert(webURL[index] == undefined);
