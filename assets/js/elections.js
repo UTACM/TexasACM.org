@@ -61,7 +61,7 @@ function showInfo(data) {
 		if (order.length > 0)
 			internalContent += '<strong>Position Preferences</strong>'
 			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + order + '</p></div>';
-		internalContent += '<br></div>';
+		internalContent += '</div>';
 
 		if (data[index]["SO Position"].includes("President")===true) {
 			presidential_table += internalContent;
