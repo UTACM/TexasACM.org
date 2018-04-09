@@ -10,6 +10,8 @@ Tabletop.init( { key: public_spreadsheet_url,
 }
 
 window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
+var unhiddenPosition = "";
+
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
@@ -47,61 +49,50 @@ function showInfo(data) {
 		var qualifications = data[index]["Qualifications"];
 		var platform = data[index]["Officer Platform"];
 		var misc = data[index]["Is there anything else you'd like us to know?"];
+		var order = data[index]["Position Preferences"];
+
+		var internalContent = '<h3>' + firstName + " " + lastName + '</h3>' 
+			+ '<div style="padding-left: 2%; padding-right: 2%" >'
+			+ '<strong>Qualifications</strong>'
+			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + qualifications.replace('\n', "<br />") + '</p></div>'
+			+ '<strong>Platform</strong>'
+			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + platform.replace('\n', "<br />") + '</p></div>';
+		if (misc.length > 0)
+			internalContent += '<strong>Other things to know</strong>'
+			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + misc.replace('\n', "<br />") + '</p></div>';
+		if (order.length > 0)
+			internalContent += '<strong>Position Preferences</strong>'
+			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + order + '</p></div>';
+		internalContent += '</div>';
 
 		if (data[index]["SO Position"].includes("President")===true) {
-			presidential_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			presidential_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Human Resources")===true) {
-			hr_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			hr_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Corporate")===true) {
-			corporate_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			corporate_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Internal")===true) {
-			internal_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			internal_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Academics")===true) {
-			academics_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			academics_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Finance")===true) {
-			finance_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			finance_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Social")===true) {
-			social_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			social_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Webmaster")===true) {
-			web_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			web_table += internalContent;
 		}
 		if (data[index]["SO Position"].includes("Competitive Programming")===true) {
-			cp_table += '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<p>' + platform + '</p>'
-			+ '<p>' + misc + '</p>'
-			+ '<p>' + qualifications + '</p><br>';
+			cp_table += internalContent;
 		}
+
 
 		// Writes HTML code based on Form responses
 		// alert(webURL[index] == undefined);
@@ -127,4 +118,18 @@ function showInfo(data) {
 	document.getElementById("social_candidates").innerHTML = social_table;
 	document.getElementById("web_candidates").innerHTML = web_table;
 	document.getElementById("cp_candidates").innerHTML = cp_table;
+}
+
+// When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and 
+// Unhide the answer corresponding to the clicked on answer.
+// If the currently displaying answer is the same as the answer corresponding to the clicked on question,
+// it will be hidden and no new answer will be unhidden
+function unhidePosition(position) {
+	if (position.classList=="hidePosition") {
+		position.classList.remove("hidePosition"); 		
+	}
+	else {
+		position.classList.add("hidePosition"); 		
+
+	}
 }

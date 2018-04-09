@@ -19,7 +19,6 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
 		<script type="text/javascript" src="assets/js/tabletop.js"></script>
-		<script type="text/javascript" src="assets/js/elections.js"></script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109009244-1"></script>
 		<script>
@@ -34,6 +33,16 @@
 		}
 		#candidatesDiv {
 			padding: 0.5vw 2vw;
+		}
+		.hidePosition {
+			display:none;
+		}
+		.officerPosition:hover{
+			color:orange;
+		}
+		.officerPosition {
+			cursor: pointer;
+			color: #c15b05;
 		}
 		</style>
 
@@ -71,6 +80,7 @@
 				The Duties and Expectations of each Officer Position can be found <a href="http://texasacm.org/forms/SO_Duties" target="_blank">here</a>. <br/>
 				The elections will be held on Thursday, April 12th, at 7:00pm in GDC 5.302. 
 				<br/>
+				You can check out 2017-2018 Candidates' last year's platforms <a href="https://docs.google.com/document/d/1Qq-D1PTzKXtn7V_gxItKuF6TVQDz4nA6QXi4lZSJDPk/edit?usp=sharing" target="_blank">here</a> if you want to know what to expect. <br/>
 				<br/>
 				If you have any questions, please email <a href="mailto: hr@texasacm.org">hr@texasacm.org</a>. </p>
 				<h3>Officer Requirements</h3>
@@ -83,32 +93,32 @@
 				<br/>
 				<h2>Candidates</h2>
 				<div id="candidatesDiv">
-					<h3>President of Texas ACM</h3>
-					<div id="pres_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(pres_candidates)">President of Texas ACM</h3>
+					<div id="pres_candidates" class="hidePosition"></div>
 					<br />
-					<h3>Vice President of Human Resources</h3>
-					<div id="hr_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(hr_candidates)">Vice President of Human Resources</h3>
+					<div id="hr_candidates" class="hidePosition"></div>
 					<br />
-					<h3>Vice President of Corporate Affairs</h3>
-					<div id="corporate_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(corporate_candidates)">Vice President of Corporate Affairs</h3>
+					<div id="corporate_candidates" class="hidePosition"></div>
 					<br />
-					<h3>Vice President of Internal Affairs</h3>
-					<div id="internal_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(internal_candidates)">Vice President of Internal Affairs</h3>
+					<div id="internal_candidates" class="hidePosition"></div>
 					<br />
-					<h3>Vice President of Academics</h3>
-					<div id="academics_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(academics_candidates)">Vice President of Academics</h3>
+					<div id="academics_candidates" class="hidePosition"></div>
 					<br />
-					<h3>Vice President of Financial Affairs</h3>
-					<div id="finance_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(finance_candidates)">Vice President of Financial Affairs</h3>
+					<div id="finance_candidates" class="hidePosition"></div>
 					<br />
-					<h3>Vice President of Social Affairs</h3>
-					<div id="social_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(social_candidates)">Vice President of Social Affairs</h3>
+					<div id="social_candidates" class="hidePosition"></div>
 					<br />
-					<h3>Vice President of Website Administration</h3>
-					<div id="web_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(web_candidates)">Vice President of Website Administration</h3>
+					<div id="web_candidates" class="hidePosition"></div>
 					<br />
-					<h3>Vice President of Competitive Programming</h3>
-					<div id="cp_candidates"></div>
+					<h3 class="officerPosition" onClick="unhidePosition(cp_candidates)">Vice President of Competitive Programming</h3>
+					<div id="cp_candidates" class="hidePosition"></div>
 				</div>
 			</div>
 
@@ -123,6 +133,8 @@
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script type="text/javascript" src="assets/js/elections.js"></script>
+
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/util.js"></script>
