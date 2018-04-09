@@ -10,6 +10,8 @@ Tabletop.init( { key: public_spreadsheet_url,
 }
 
 window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
+var unhiddenPosition = "";
+
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
@@ -50,7 +52,7 @@ function showInfo(data) {
 		var order = data[index]["Position Preferences"];
 
 		var internalContent = '<h3>' + firstName + " " + lastName + '</h3>' 
-			+ '<div style="padding-left: 2%; padding-right: 2%">'
+			+ '<div style="padding-left: 2%; padding-right: 2%" >'
 			+ '<strong>Qualifications</strong>'
 			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + qualifications.replace('\n', "<br />") + '</p></div>'
 			+ '<strong>Platform</strong>'
@@ -116,4 +118,18 @@ function showInfo(data) {
 	document.getElementById("social_candidates").innerHTML = social_table;
 	document.getElementById("web_candidates").innerHTML = web_table;
 	document.getElementById("cp_candidates").innerHTML = cp_table;
+}
+
+// When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and 
+// Unhide the answer corresponding to the clicked on answer.
+// If the currently displaying answer is the same as the answer corresponding to the clicked on question,
+// it will be hidden and no new answer will be unhidden
+function unhidePosition(position) {
+	if (position.classList=="hidePosition") {
+		position.classList.remove("hidePosition"); 		
+	}
+	else {
+		position.classList.add("hidePosition"); 		
+
+	}
 }
