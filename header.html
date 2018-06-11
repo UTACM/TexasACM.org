@@ -42,51 +42,32 @@
 		<!-- Header -->
 		<header id="header">
 			<h1><a href="index.html" target="_parent">Association for Computing Machinery <span>at UT Austin</span></a></h1>
-
-			<!-- Nav Bar Buttons -->
 			<nav id="nav">
 				<ul>
-					<li><a href="index.html" id="home" target="_parent">Home</a></li>
-					<!-- 
+					<!-- DYNAMIC STARTS HERE -->
+					<li><a href="M">Home</a></li>
+					<li><a href="about.html">About</a></li>
 					<li>
-						<a href="#" class="submenu fa-angle-down" target="_parent">Page Layouts</a>
+						<a href="#" class="submenu fa-angle-down">Membership</a>
 						<ul>
-							<li><a href="left-sidebar.html" target="_parent">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html" target="_parent">Right Sidebar</a></li>
-							<li><a href="no-sidebar.html" target="_parent">No Sidebar</a></li>
-							<li>
-								<a href="#" target="_parent">Submenu</a>
-								<ul>
-									<li><a href="#" target="_parent">Option One</a></li>
-									<li><a href="#" target="_parent">Option Two</a></li>
-									<li><a href="#" target="_parent">Option Three</a></li>
-									<li><a href="#" target="_parent">Option Four</a></li>
-								</ul>
-							</li>
-						</ul> 
-					</li>
-					-->
-					<li><a href="about.html" id="about" target="_parent">About</a></li>
-					<li>
-						<a href="membership.html" id="member" target="_parent">Membership</a>
-						<ul>
-							<li><a href="membership.html#benefits" target="_parent">Benefits</a></li>
-							<li><a href="membership.html#events" target="_parent">Events</a></li>
-							<li><a href="membership.html#lockers" target="_parent">Lockers</a></li>
+							<li><a href="membership.html#benefits">Benefits</a></li>
+							<li><a href="membership.html#events">Events</a></li>
+							<li><a href="membership.html#lockers">Lockers</a></li>
 						</ul>
 					</li>
-					<li><a href="faq.html" id="faq" target="_parent">FAQ</a></li>
-					<li><a href="events.html" id="events" target="_parent">Events</a></li>
-					<li><a href="http://projects.texasacm.org/" id="events" target="_parent">Projects</a></li>
-					<li><a href="corporate.html" id="corporate" target="_parent">Corporate</a></li>
-					<li><a href="forms.html" id="forms" target="_parent">Forms</a></li>					
+					<li><a href="faq.html">FAQ</a></li>
+					<li><a href="events.html">Events</a></li>
+					<li><a href="http://projects.texasacm.org">Projects</a></li>
+					<li><a href="corporate.html">Corporate</a></li>
+					<li><a href="forms.html">Forms</a></li>
+					<!-- DYNAMIC ENDS HERE -->
 				</ul>
 			</nav>
 		</header>
-		<script type="text/javascript">	
+		<script type="text/javascript">
 			var url = window.location.href;
 			var queryString = url.substring(url.indexOf('?') + 1 );
-			document.getElementById(queryString).className = "active";
+			document.getElementById(queryString).className = "active";a
 		</script>
 	</body>
 </html>
