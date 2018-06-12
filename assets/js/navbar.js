@@ -27,8 +27,9 @@ function init() {
       itemURL[index] = data[index].ITEM_URL;
 
       url = data[index].ITEM_URL;
+      var higherIndex = itemURL.indexOf(url.substring(0, url.indexOf('#')));
       if (index > -1) {
-        var higherIndex = itemURL.indexOf(url.substring(0, url.indexOf('#')));
+        // var higherIndex = itemURL.indexOf(url.substring(0, url.indexOf('#')));
         if (url.includes("#")) {
           // window.alert("This is the index of the upper menu item: " + higherIndex);
           if (topMenu == true) {
