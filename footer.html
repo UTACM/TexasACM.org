@@ -25,13 +25,18 @@
 			<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
-					<p class="copyright" style="color:#c15b05;">© Association for Computing Machinery at the University of Texas at Austin 2017</p>
+					<p class="copyright" style="color:#c15b05;">© Association for Computing Machinery at the University of Texas at Austin
+					<script type="text/javascript">
+					var today = new Date()
+					var year = today.getFullYear()
+					document.write(year)
+					</script></p>
 					<a href="https://www.facebook.com/groups/texas.acm" class="fa fa-facebook" target="_blank"></a>
 					<a href="https://discordapp.com/invite/7PtYCAm" class="fa fa-comments" target="_blank"></a>
 				</div>
 			</footer>
-			
-		<script type="text/javascript">	
+
+		<script type="text/javascript">
 			var url = window.location.href;
 			var queryString = url.substring(url.indexOf('?') + 1 );
 			document.getElementById(queryString).className = "active";

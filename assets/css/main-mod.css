@@ -1641,7 +1641,7 @@
 		margin: 0 0 1.5em 0;
 		padding-bottom: 1.25em;
 		position: relative;
-		
+
 	}
 
 		h1:after, h2:after, h3:after, h4:after, h5:after, h6:after {
@@ -1778,7 +1778,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #444;
+		color: #c15b05;
 	}
 
 	blockquote {
@@ -2311,6 +2311,7 @@
 		text-decoration: none;
 		border-bottom: none;
 		position: relative;
+		color: #c15b05;
 	}
 
 		.icon:before {
@@ -4311,7 +4312,7 @@
 		@media screen and (max-width: 980px) {
 
 			#banner {
-				
+
 				min-height: 50em;
 				height: 75vh;
 			}
@@ -4596,8 +4597,8 @@
 
 		}
 
-		ul li { 
-		   list-style: none; 
+		ul li {
+		   list-style: none;
 		   margin;
 		   padding:0;
 		}
@@ -4605,7 +4606,7 @@
 		div.absolute {
 	    top: : 1000px;
 	    float: top;
-		} 
+		}
 
 		.active {
 			color:#c15b05;
@@ -4668,7 +4669,7 @@
 			margin:0px;
 			margin-bottom:1em;
 		}
-		
+
 		#office-info {
 			list-style:disc;
 		}
@@ -4677,7 +4678,7 @@
 			color:gray;
 			font-style: italic;
 			font-size:1vw;
-		}					
+		}
 		.officer-mailto:hover {
 			color:orange;
 		}
