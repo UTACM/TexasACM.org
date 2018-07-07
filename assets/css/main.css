@@ -40,7 +40,6 @@
 	}
 
 	table {
-		border-collapse: collapse;
 		border-spacing: 0;
 		width: 90%;
 	    margin-left: auto;
@@ -1778,7 +1777,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #444;
+		color: #c15b05;
 	}
 
 	blockquote {
@@ -1851,7 +1850,7 @@
 		input[type="button"].icon,
 		button.icon,
 		.button.icon {
-			padding-left: 1vw;
+			padding-left: 1.35em;
 		}
 
 			input[type="submit"].icon:before,
@@ -1935,10 +1934,14 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
+			/* Improves scaling at mobile sizes */
 			box-shadow: none;
+			height: 2.25vw;
+			font-size: .75vw;
 			border-radius:5px;
 			background-color: #c15b05;
 			color: #fff !important;
+			margin-top:1em;
 		}
 
 
@@ -2323,6 +2326,7 @@
 		text-decoration: none;
 		border-bottom: none;
 		position: relative;
+		color: #c15b05;
 	}
 
 		.icon:before {
@@ -3760,6 +3764,10 @@
 		padding-top: 3.5em;
 	}
 
+	body #footer {
+		padding-top: 0em;
+	}
+
 	div:not([name="!body"]){
     	padding-top: 0em;
 }
@@ -3833,6 +3841,7 @@
 			margin: 0;
 			padding-bottom: 0;
 			position: relative;
+			color: #444;
 		}
 
 			#header h1:after {
@@ -4256,6 +4265,7 @@
 				top: 0;
 				left: 0;
 				background: #000;
+				/* opacity of slideshow images */
 				opacity: 0.1;
 			}
 
@@ -4398,10 +4408,6 @@
 		color: #c15b05;
 	}
 
-	#footer-iframe {
-	height: 7em;
-	}
-
 		#footer > .inner {
 			margin: 0 auto;
 			max-width: 90em;
@@ -4410,7 +4416,14 @@
 		}
 
 		#footer .copyright {
+			/* centers footer content */
 			font-size: 0.9em;
+			text-align: center;
+	    margin-left: auto;
+	    margin-right: auto;
+			margin-top: 4em;
+			margin-bottom: 2em;
+
 		}
 
 		#footer .menu {
@@ -4433,7 +4446,8 @@
 			}
 
 				#footer .copyright {
-					margin: 0 0 1em 0;
+					margin-top: 4em;
+					margin-bottom: 2em;
 				}
 
 				#footer .menu {
@@ -4662,7 +4676,7 @@
 		.officer-name {
 			font-size: 1.3vw;
 			font-weight: 600;
-			color: black;
+			color: #c15b05;
 			line-height: 1;
 			margin:0px;
 			margin-bottom:0.5em;
@@ -4673,7 +4687,7 @@
 		.officer-title {
 			font-size: 1.20vw;
 			font-weight: 600;
-			color: gray;
+			color: #444;
 			line-height: 1;
 			margin:0px;
 			margin-bottom:0.5em;
@@ -4681,7 +4695,7 @@
 
 		.operational-officer-title {
 			font-size: 1vw;
-			color: gray;
+			color: #444;
 			line-height: 1;
 			margin:0px;
 			margin-bottom:1em;
@@ -4692,7 +4706,7 @@
 		}
 		.officer-mailto {
 			text-decoration:none;
-			color:gray;
+			color: #444;
 			font-style: italic;
 			font-size:1vw;
 		}
@@ -4740,6 +4754,7 @@
  }
  .faq_question {
  	cursor: pointer;
+	color: #444;
  }
  .faq_question:Hover {
  	color:#c15b05;
