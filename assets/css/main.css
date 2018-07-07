@@ -40,7 +40,6 @@
 	}
 
 	table {
-		/* border-collapse: collapse; */
 		border-spacing: 0;
 		width: 90%;
 	    margin-left: auto;
@@ -1779,7 +1778,6 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #c15b05;
-		/* color: #444 */
 	}
 
 	blockquote {
@@ -1852,7 +1850,6 @@
 		input[type="button"].icon,
 		button.icon,
 		.button.icon {
-			/* padding-left: 1vw; */
 			padding-left: 1.35em;
 		}
 
@@ -4409,10 +4406,6 @@
 		border-top: solid 1px #e6e6e6;
 		position: relative;
 		color: #c15b05;
-	}
-
-	#footer-iframe {
-	/* height: 8em; */
 	}
 
 		#footer > .inner {
