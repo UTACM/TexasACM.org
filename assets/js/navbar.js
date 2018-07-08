@@ -14,7 +14,7 @@ function init() {
   // Method that gets called when data has been pulled from Google Sheets
   function showInfoNav(data) {
     var index = 0; // Line 2 is index 0
-    var navbarContent = '<nav id="nav"><ul>';
+    var navbarContent = '<header id="header"><h1><a href="index.html" target="_parent">Association for Computing Machinery <span>at UT Austin</span></a></h1><nav id="nav"><ul>';
     //Builds the Forms and Addresses arrays using the Google Sheets Data
     var navbarItemName = [];
     var itemURL = [];
@@ -22,6 +22,8 @@ function init() {
     var parsedURL = '';
     var firstOccur = 0;
     var topMenu = true;
+    var normMenu = true;
+    var tempNavbarItemName = '';
     while (data[index] != null) {
       navbarItemName[index] = data[index].NAVBAR_ITEM_NAME;
       itemURL[index] = data[index].ITEM_URL;
@@ -29,34 +31,38 @@ function init() {
       url = data[index].ITEM_URL;
       var higherIndex = itemURL.indexOf(url.substring(0, url.indexOf('#')));
       if (index > -1) {
-        // var higherIndex = itemURL.indexOf(url.substring(0, url.indexOf('#')));
         if (url.includes("#")) {
-          // window.alert("This is the index of the upper menu item: " + higherIndex);
+          normMenu = false;
           if (topMenu == true) {
-            navbarContent+='<li><a href="#" class="submenu fa-angle-down">' + navbarItemName[higherIndex] + '</a><ul><li><a href="' + itemURL[index] + '">' + navbarItemName[index] + '</a></li>';
+            // Builds menubar item name on the fly
+            tempNavbarItemName = tempNavbarItemName + itemURL[index].substring(0, 1).toUpperCase() + itemURL[index].substring(1, itemURL[index].indexOf('.'));
+            navbarContent+='<li><a href="#" class="submenu fa-angle-down">' + tempNavbarItemName + '</a><ul><li><a href="' + itemURL[index] + '" target="_parent">' + navbarItemName[index] + '</a></li>';
             topMenu = false;
           } else {
             navbarContent+= '<li><a href="' + itemURL[index] + '">' + navbarItemName[index] +'</a></li>';
           }
           index++;
         } else {
-          navbarContent+='</ul></li>';
+          if (topMenu == false && normMenu == false) {
+            navbarContent+='</ul>';
+          }
+          normMenu = true;
           if (index == higherIndex) {
             index++;
           } else {
             navbarContent += '<li><a href="'
-            + itemURL[index] + '">'
+            + itemURL[index] + '" target="_parent">'
             + navbarItemName[index]
             + '</a></li>';
             index++;
           }
         }
       }
-      // navbarContent += '</ul></nav>';
-      //
-      // document.getElementById("navbarContainer").innerHTML = navbarContent;
+
     }
-    navbarContent += '</ul></nav>';
+    navbarContent += '</ul></nav></header>';
+    // DEBUGGING: Print HTML code before rendering on site
+    alert(navbarContent);
 
     document.getElementById("navbarContainer").innerHTML = navbarContent;
   }
