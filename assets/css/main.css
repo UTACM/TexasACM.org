@@ -1936,7 +1936,7 @@
 		.button.special {
 			/* Improves scaling at mobile sizes */
 			box-shadow: none;
-			height: 2.25vw;
+			height: 2.5em;
 			font-size: .75vw;
 			border-radius:5px;
 			background-color: #c15b05;
@@ -1944,7 +1944,7 @@
 			margin-top:1em;
 		}
 
-		@media only screen and (max-width: 1280px) {
+		@media only screen and (max-width: 960px) {
 			input[type="submit"].special,
 			input[type="reset"].special,
 			input[type="button"].special,
@@ -1952,7 +1952,6 @@
 			.button.special {
 				/* Improves scaling at mobile sizes */
 				box-shadow: none;
-				height: 2.5em;
 				font-size: .75em;
 				border-radius:5px;
 				background-color: #c15b05;
