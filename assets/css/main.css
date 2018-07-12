@@ -1937,7 +1937,7 @@
 			/* Improves scaling at mobile sizes */
 			box-shadow: none;
 			height: 2.5em;
-			font-size: .75vw;
+			font-size: 12px;
 			border-radius:5px;
 			background-color: #c15b05;
 			color: #fff !important;
@@ -1957,6 +1957,9 @@
 				background-color: #c15b05;
 				color: #fff !important;
 				margin-top:1em;
+				white-space: normal;
+				max-width: 20vw;
+				min-width: 15vw;
 			}
 		}
 
@@ -4726,6 +4729,9 @@
 		.officer-mailto:hover {
 			color:orange;
 		}
+}
+
+
 
 		@media only screen and (max-width: 800px) {
 			.team-cards-row {
@@ -4804,14 +4810,24 @@
 			text-align: center;
 		}
 		.perk-yes {
-			background-color: #fff;
+			background-color: gainsboro;
 		}
 		.compare-table td {
 			border-bottom:1px solid gray;
 			line-height: 1.2;
 		}
+
 		.compare-table td:not(.first-col) {
 			border-left:1px solid gray;
+		}
+
+		/* Mobile scaling for corporate page*/
+		@media only screen and (max-width: 540px) {
+			.compare-table td {
+				border-bottom:1px solid gray;
+				line-height: 1.2;
+				font-size: 3vw;
+			}
 		}
 
 		.member-type {
