@@ -24,6 +24,7 @@ function init() {
     var topMenu = true;
     var normMenu = true;
     var tempNavbarItemName = '';
+    var plainURL = '';
     while (data[index] != null) {
       navbarItemName[index] = data[index].NAVBAR_ITEM_NAME;
       itemURL[index] = data[index].ITEM_URL;
@@ -36,10 +37,11 @@ function init() {
           if (topMenu == true) {
             // Builds menubar item name on the fly
             tempNavbarItemName = tempNavbarItemName + itemURL[index].substring(0, 1).toUpperCase() + itemURL[index].substring(1, itemURL[index].indexOf('.'));
-            navbarContent+='<li><a href="#" class="submenu fa-angle-down">' + tempNavbarItemName + '</a><ul><li><a href="' + itemURL[index] + '" target="_parent">' + navbarItemName[index] + '</a></li>';
+            plainURL = plainURL + itemURL[index].substring(0, itemURL[index].indexOf('#'));
+            navbarContent+='<li><a href="' + plainURL + '" target="_parent" class="submenu fa-angle-down">' + tempNavbarItemName + '</a><ul><li><a href="' + itemURL[index] + '" target="_parent">' + navbarItemName[index] + '</a></li>';
             topMenu = false;
           } else {
-            navbarContent+= '<li><a href="' + itemURL[index] + '">' + navbarItemName[index] +'</a></li>';
+            navbarContent+= '<li><a href="' + itemURL[index] + '" target="_parent">' + navbarItemName[index] +'</a></li>';
           }
           index++;
         } else {
@@ -62,7 +64,7 @@ function init() {
     }
     navbarContent += '</ul></nav></header>';
     // DEBUGGING: Print HTML code before rendering on site
-    alert(navbarContent);
+    // alert(navbarContent);
 
     document.getElementById("navbarContainer").innerHTML = navbarContent;
   }
