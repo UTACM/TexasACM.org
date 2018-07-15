@@ -1,4 +1,4 @@
-var header = ""
+var header = "" 
 +  '<h1><a href="index.html">Association for Computing Machinery <span>at UT Austin</span></a></h1>'
 +  '	<nav id="nav">'
 +  '		<ul>'
