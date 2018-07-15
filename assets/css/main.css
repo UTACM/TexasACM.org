@@ -4102,8 +4102,8 @@
 	.dropotron {
 		list-style: none;
 		padding: 0;
-		background: #fff;
-		color: #444;
+		background: #24292e;
+		color: #eee;
 		min-width: 8em;
 		padding: 0.75em;
 		margin-top: -0.5em;
@@ -4870,11 +4870,11 @@
 }
 
 #footer a {
-	color: #ccc;
+	color: #eee;
 }
 
 #header a, #header h1 {
-	color:#ccc;
+	color:#eee;
 }
 #header a.active {
 	color: #c15b05;
