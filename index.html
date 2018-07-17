@@ -199,7 +199,7 @@ License: pixelarity.com/license
 		 }
 		 iFrameHeight = parseInt(screenHeight * 0.8);
 	}
-	if (screenWidth > 960 && screenHeight > 960) { // if (desktop resolution and vertical)
+	if (screenWidth < 960 && screenHeight > 960) { // if (desktop resolution and vertical)
 		 iFrameWidth = parseInt(screenWidth * 0.45);
 		 if (iFrameWidth > 500) {
 				iFrameWidth = 500;
