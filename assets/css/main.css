@@ -4915,3 +4915,15 @@
 #header, #footer {
 	background-color:#24292e;
 }
+
+@media only screen and (max-width: 960px)  {
+
+  .full {
+
+    display: block;
+
+    width:100%;
+
+  }
+
+}

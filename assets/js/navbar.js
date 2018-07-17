@@ -1,4 +1,4 @@
-var header = "" 
+var header = ""
 +  '<h1><a href="index.html">Association for Computing Machinery <span>at UT Austin</span></a></h1>'
 +  '	<nav id="nav">'
 +  '		<ul>'
@@ -50,7 +50,7 @@ var header = ""
 +  '	</nav>';
 document.getElementById("header").innerHTML = header;
 
-<<<<<<< HEAD
+
 // Address of the Google Sheets Database
 var public_spreadsheet_url_navbar = 'https://docs.google.com/spreadsheets/d/1KrnAgk7K1xZY5YKLBqA3mzfyBRP8WKxbM6D2czn5QG8/edit?usp=sharing';
 
@@ -119,7 +119,7 @@ function init() {
 
     document.getElementById("navbarContainer").innerHTML = navbarContent;
   }
-=======
+
 var topLevelNavLinkIds = ["Home", "About", "Membership", "Projects", "Events", "Corporate", "Forms"];
 for (index = 0; index < topLevelNavLinkIds.length; index++) {
 	if (document.title.includes(topLevelNavLinkIds[index])) {
@@ -127,4 +127,3 @@ for (index = 0; index < topLevelNavLinkIds.length; index++) {
 		break;
 	}
 }
->>>>>>> master
