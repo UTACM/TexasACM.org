@@ -163,11 +163,11 @@ License: pixelarity.com/license
 	<tr>
 		<td width="50%" dir="ltr" class="full" style="align: center;">
 			<p>Upcoming Events</p>
-			<iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" style="display:block;"></iframe>
+			<iframe id="news-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 		</td>
 		<td width="50%" dir="ltr" class="full">
-			<p>News Events</p>
-			<iframe id="news-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+			<p>Recent Events</p>
+			<iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" style="display:block;"></iframe>
 		</td>
 	</tr>
 </table>
@@ -192,24 +192,27 @@ License: pixelarity.com/license
 <script type="text/javascript">  //This Javascript code dynamically sets the size of the iFrames based on screen res.
 	var screenWidth = window.innerWidth;
 	var screenHeight = window.innerHeight;
-	if (screenWidth > 960 && screenHeight < 960) { // if (desktop resolution and landscape)
-		 iFrameWidth = parseInt(screenWidth * 0.45);
-		 if (iFrameWidth > 500) {
+	if (screenWidth > 960 && screenHeight < screenWidth) { // if (desktop resolution and landscape)
+		 if ((parseInt(screenWidth * 0.45)) > 500) {
 				iFrameWidth = 500;
+		 } else {
+			 iFrameWidth = parseInt(screenWidth * 0.45);
 		 }
 		 iFrameHeight = parseInt(screenHeight * 0.8);
 	}
-	if (screenWidth < 960 && screenHeight > 960) { // if (desktop resolution and vertical)
-		 iFrameWidth = parseInt(screenWidth * 0.45);
-		 if (iFrameWidth > 500) {
+	if (screenWidth < screenHeight && screenHeight > 960) { // if (desktop resolution and vertical)
+		 if ((parseInt(screenWidth * 0.45)) > 500) {
 				iFrameWidth = 500;
+		 } else {
+			 iFrameWidth = parseInt(screenWidth * 0.45);
 		 }
 		 iFrameHeight = parseInt(screenHeight * 0.5);
 	}
 	if (screenWidth <= 960) { // if (mobile resolution)
-		 iFrameWidth = parseInt(screenWidth * 0.95);
-		 if (iFrameWidth > 500) {
+		 if ((parseInt(screenWidth * 0.95)) > 500) {
 				iFrameWidth = 500;
+		 } else {
+			 iFrameWidth = parseInt(screenWidth * 0.95);
 		 }
 		 iFrameHeight = parseInt(screenHeight * 0.8);
 	}
