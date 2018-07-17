@@ -134,7 +134,6 @@ License: pixelarity.com/license
 
 <section id="one" class="wrapper major-pad">
 	<div class="inner">
-
 		<section class="spotlight" style="padding:0px 4%">
 			<div class="content">
 				<div style="margin: 0 auto; width:80vw;">
@@ -156,27 +155,22 @@ License: pixelarity.com/license
 							</div>
 						</form>
 					</div>
-				<div style="text-align:center;">
-					<table>
-						<tr>
-							<th>Recent Events</th>
-							<th colspan="2">Upcoming Events</th>
-						</tr>
-						<tr>
-							<td>
-								<iframe id="recent-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-							</td>
-							<td>
-								<iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
 		</section>
 	</div>
 </section>
 
+<table dir="rtl" width="100%" style="text-align: center;">
+	<tr>
+		<td width="50%" dir="ltr" class="full" style="align: center;">
+			<p>Upcoming Events</p>
+			<iframe id="news-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+		</td>
+		<td width="50%" dir="ltr" class="full">
+			<p>Recent Events</p>
+			<iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" style="display:block;"></iframe>
+		</td>
+	</tr>
+</table>
 
 	<!--End mc_embed_signup-->
 </div>
@@ -196,20 +190,42 @@ License: pixelarity.com/license
 <script src="assets/js/main.js"></script>		<!-- Must be included after navbar.js -->
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script type="text/javascript">  //This Javascript code dynamically sets the size of the iFrames based on screen res.
-var screenWidth = window.innerWidth;
-iFrameWidth = parseInt(screenWidth*0.4);
-iFrameHeight = parseInt(screenWidth*0.5);
-var upcomingURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=timeline&width=" + iFrameWidth+"&height="+iFrameHeight+"&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
-var newsURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=events&width="+iFrameWidth+"&height="+iFrameHeight+"&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
-var upcomingiframe = document.getElementById("upcoming-iframe");
-upcomingiframe.src = upcomingURL;
-upcomingiframe.width = iFrameWidth;
-upcomingiframe.height = iFrameHeight;
-var newsiframe = document.getElementById("news-iframe");
-newsiframe.src = newsURL;
-newsiframe.width = iFrameWidth;
-newsiframe.height = iFrameHeight;
-
+	var screenWidth = window.innerWidth;
+	var screenHeight = window.innerHeight;
+	if (screenWidth > 960 && screenHeight < screenWidth) { // if (desktop resolution and landscape)
+		 if ((parseInt(screenWidth * 0.45)) > 500) {
+				iFrameWidth = 500;
+		 } else {
+			 iFrameWidth = parseInt(screenWidth * 0.45);
+		 }
+		 iFrameHeight = parseInt(screenHeight * 0.8);
+	}
+	if (screenWidth < screenHeight && screenHeight > 960) { // if (desktop resolution and vertical)
+		 if ((parseInt(screenWidth * 0.45)) > 500) {
+				iFrameWidth = 500;
+		 } else {
+			 iFrameWidth = parseInt(screenWidth * 0.45);
+		 }
+		 iFrameHeight = parseInt(screenHeight * 0.5);
+	}
+	if (screenWidth <= 960) { // if (mobile resolution)
+		 if ((parseInt(screenWidth * 0.95)) > 500) {
+				iFrameWidth = 500;
+		 } else {
+			 iFrameWidth = parseInt(screenWidth * 0.95);
+		 }
+		 iFrameHeight = parseInt(screenHeight * 0.8);
+	}
+	var upcomingURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=timeline&width=" + iFrameWidth + "&height=" + iFrameHeight + "&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
+	var newsURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=events&width=" + iFrameWidth + "&height=" + iFrameHeight + "&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
+	var upcomingiframe = document.getElementById("upcoming-iframe");
+	upcomingiframe.src = upcomingURL;
+	upcomingiframe.width = iFrameWidth;
+	upcomingiframe.height = iFrameHeight;
+	var newsiframe = document.getElementById("news-iframe");
+	newsiframe.src = newsURL;
+	newsiframe.width = iFrameWidth;
+	newsiframe.height = iFrameHeight;
 </script>
 
 </body>

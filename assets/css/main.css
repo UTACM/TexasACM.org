@@ -4095,6 +4095,25 @@
 
 					#header h1 a {
 						font-size: 0.9em;
+						/* max-width: 90vw; */
+					}
+
+		}
+
+		@media screen and (max-width: 400px) {
+
+			#header {
+				height: 3em;
+				line-height: 3em;
+			}
+
+				#header h1 {
+					left: 1em !important;
+				}
+
+					#header h1 a {
+						/* font-size: 4vw; */
+    				font-size: 11px;
 					}
 
 		}
@@ -4895,4 +4914,16 @@
 
 #header, #footer {
 	background-color:#24292e;
+}
+
+@media only screen and (max-width: 960px)  {
+
+  .full {
+
+    display: block;
+
+    width:100%;
+
+  }
+
 }
