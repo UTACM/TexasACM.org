@@ -163,11 +163,11 @@ License: pixelarity.com/license
 	<tr>
 		<td width="50%" dir="ltr" class="full" style="align: center;">
 			<p>Upcoming Events</p>
-			<iframe id="news-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+			<iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 		</td>
 		<td width="50%" dir="ltr" class="full">
-			<p>Recent Events</p>
-			<iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" style="display:block;"></iframe>
+			<p>Current Events</p>
+			<iframe id="current-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" style="display:block;"></iframe>
 		</td>
 	</tr>
 </table>
@@ -218,11 +218,11 @@ License: pixelarity.com/license
 	}
 	var upcomingURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=timeline&width=" + iFrameWidth + "&height=" + iFrameHeight + "&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
 	var newsURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=events&width=" + iFrameWidth + "&height=" + iFrameHeight + "&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
-	var upcomingiframe = document.getElementById("upcoming-iframe");
+	var upcomingiframe = document.getElementById("current-iframe");
 	upcomingiframe.src = upcomingURL;
 	upcomingiframe.width = iFrameWidth;
 	upcomingiframe.height = iFrameHeight;
-	var newsiframe = document.getElementById("news-iframe");
+	var newsiframe = document.getElementById("upcoming-iframe");
 	newsiframe.src = newsURL;
 	newsiframe.width = iFrameWidth;
 	newsiframe.height = iFrameHeight;
