@@ -4122,7 +4122,7 @@
 		list-style: none;
 		padding: 0;
 		background: #24292e;
-		color: #eee;
+		color: #ccc;
 		min-width: 8em;
 		padding: 0.75em;
 		margin-top: -0.5em;
@@ -4534,8 +4534,7 @@
 	}
 
 		#navPanel nav {
-			/*padding: 3em 2em;*/
-			padding:0px 1em;
+			padding: 3em 2em;
 		}
 
 		#navPanel .link {
@@ -4589,7 +4588,7 @@
 			transition: color 0.2s ease-in-out;
 			-webkit-tap-highlight-color: transparent;
 			border: 0;
-			color: #eee;
+			color: #ccc;
 			cursor: pointer;
 			display: block;
 			height: 4em;
@@ -4660,7 +4659,7 @@
 			}
 
 				#navPanel nav {
-					padding: 2.25em 1.25em;
+					padding: 1em 2.5em 0 1.5em;
 				}
 
 		}
@@ -4670,6 +4669,7 @@
 		   margin;
 		   padding:0;
 		}
+
 
 		div.absolute {
 	    top: : 1000px;
@@ -4861,21 +4861,46 @@
 		.chk-img {
 			width:1.5em;
 		}
+
 		.mobile-header-iframe {
 			width:100%;
 			margin:0px;
-			height:80vh;
+			height:95vh;
 		}
+
 		#header a {
 		font-style: normal;
 		}
+
 		#mobile-header-body a {
 			border-bottom: none;
 			font-style: normal;
-			color:#eee;
+			font-size: 12px;
+			max-font-size:
+			color:#ccc;
 		}
 		#mobile-header-body {
 			background-color: #24292e;
+			padding-top: 1em;
+		}
+
+		#mobile-header-body ul {
+			margin: 0 0 .7vh 0;
+		}
+
+		#mobile-header-body li {
+			margin-top: -1vh;
+			margin-bottom: -1vh;
+		}
+
+		#mobile-header-body .topMenu {
+			padding-right: 100vw;
+			line-height: 3;
+			border-bottom: 1px solid #ccc;
+			font-weight: bold;
+			color: #ccc;
+			margin-top: 1em;
+
 		}
 
  .hideAnswer {
@@ -4894,11 +4919,11 @@
 }
 
 #footer a {
-	color: #eee;
+	color: #ccc;
 }
 
 #header a, #header h1 {
-	color:#eee;
+	color:#ccc;
 }
 #header a.active {
 	color: #c15b05;
