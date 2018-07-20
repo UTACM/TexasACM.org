@@ -39,26 +39,9 @@
 	<body id="mobile-header-body">
 
 		<!-- Header -->
-		<ul>
+		<!-- <ul>
 			<li><a href="index.html" id="home" target="_parent">Home</a></li>
-			<!--
-			<li>
-				<a href="#" class="submenu fa-angle-down" target="_parent">Page Layouts</a>
-				<ul>
-					<li><a href="left-sidebar.html" target="_parent">Left Sidebar</a></li>
-					<li><a href="right-sidebar.html" target="_parent">Right Sidebar</a></li>
-					<li><a href="no-sidebar.html" target="_parent">No Sidebar</a></li>
-					<li>
-						<a href="#" target="_parent">Submenu</a>
-						<ul>
-							<li><a href="#" target="_parent">Option One</a></li>
-							<li><a href="#" target="_parent">Option Two</a></li>
-							<li><a href="#" target="_parent">Option Three</a></li>
-							<li><a href="#" target="_parent">Option Four</a></li>
-						</ul>
-					</li>
-				</ul>
-			</li>-->
+
 			<li>
 				<a href="about.html" id="about" target="_parent">About</a>
 				<ul>
@@ -81,7 +64,48 @@
 			<li><a href="http://projects.texasacm.org/" id="events" target="_parent">Projects</a></li>
 			<li><a href="corporate.html" id="corporate" target="_parent">Corporate</a></li>
 			<li><a href="forms.html" id="forms" target="_parent">Forms</a></li>
-		</ul>
+		</ul> -->
+			<ul>
+				<li>
+					<a href="index.html" class="topMenu" id="Home" target="_parent">Home</a>
+				</li>
+				<li>
+					<a href="about.html" class="submenu, topMenu" id="About" target="_parent">About</a>
+					<ul>
+						<li><a href="about.html#benefits" target="_parent">About Us</a></li>
+						<li><a href="about.html#why-join" target="_parent">Why Join</a></li>
+						<li><a href="about.html#about-office" target="_parent">Our Office</a></li>
+						<li><a href="about.html#about-team" target="_parent">Our Team</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="membership.html" class="submenu, topMenu" id="Membership" target="_parent">Membership</a>
+					<ul>
+						<li><a href="membership.html#benefits" target="_parent">Benefits</a></li>
+						<li><a href="membership.html#events" target="_parent">Events</a></li>
+						<li><a href="membership.html#lockers" target="_parent">Lockers</a></li>
+					</ul>
+				</li>
+				<li><a href="faq.html" class="topMenu" target="_parent">FAQ</a></li>
+				<li><a href="events.html" id="Events" class="topMenu" target="_parent">Events</a></li>
+				<li><a href="http://projects.texasacm.org" id="Projects" class="topMenu" target="_parent">Projects</a></li>
+				<li>
+					<a href="corporate.html" class="submenu, topMenu" id="Corporate" target="_parent">Corporate</a>
+					<ul>
+						<li><a href="corporate.html#sponsor-packages" target="_parent">Packages</a></li>
+						<li><a href="corporate.html#sponsors" target="_parent">Sponsors</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="forms.html" class="submenu, topMenu" id="Forms" target="_parent">Forms</a>
+					<ul id="navForms">
+						<li><a href="forms.html?Signin" target="_parent">Sign In</a></li>
+						<li><a href="forms.html?Join" target="_parent">Join ACM</a></li>
+						<li><a href="forms.html?Pc" target="_parent">Prog Comp</a></li>
+						<li><a href="forms.html?Complaints" target="_parent">HR Complaint</a></li>
+					</ul>
+				</li>
+			</ul>
 		<script type="text/javascript">
 			var url = window.location.href;
 			var queryString = url.substring(url.indexOf('?') + 1 );
