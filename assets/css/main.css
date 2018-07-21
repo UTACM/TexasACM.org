@@ -1769,7 +1769,7 @@
 	}
 
 	a {
-		color: #ccc;
+		color: #444;
 	}
 
 	strong, b {
@@ -4877,6 +4877,8 @@
 			font-style: normal;
 			font-size: 12px;
 			max-font-size:
+		}
+		.mobile-header-a {
 			color:#ccc;
 		}
 		#mobile-header-body {
