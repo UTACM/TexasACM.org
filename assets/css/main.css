@@ -4863,13 +4863,13 @@
 		}
 
 		.mobile-header-iframe {
-			width:63.5vw;
+			width:16em;
 			margin:0px;
 			height:95vh;
 		}
 
 		#header a {
-		font-style: normal;
+			font-style: normal;
 		}
 
 		#mobile-header-body a {
