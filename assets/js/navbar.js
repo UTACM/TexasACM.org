@@ -14,16 +14,17 @@ var header = ""
 +  '				<a href="about.html" class="submenu" id="About">About</a>'
 +  '				<ul>'
 +  '					<li><a href="about.html#about-us">About Us</a></li>'
++  '					<li><a href="about.html#what-we-do">What We Do</a></li>'
 +  '					<li><a href="about.html#why-join">Why Join</a></li>'
-+  '					<li><a href="about.html#about-office">Our Office</a></li>'
-+  '					<li><a href="about.html#about-team">Our Team</a></li>'
++  '					<li><a href="about.html#our-team">Our Team</a></li>'
 +  '				</ul>'
 +  '			</li>'
 +  '			<li>'
 +  '				<a href="resources.html" class="submenu" id="Resources">Resources</a>'
 +  '				<ul>'
-+  '					<li><a href="resources.html#benefits">Benefits</a></li>'
-+  '					<li><a href="resources.html#events">Events</a></li>'
++  '					<li><a href="resources.html#become-member">Become a Member</a></li>'
++  '					<li><a href="resources.html#hr-contact">HR Contact</a></li>'
++  '					<li><a href="resources.html#join-mentorship">Mentorship</a></li>'
 +  '					<li><a href="resources.html#lockers">Lockers</a></li>'
 +  '				</ul>'
 +  '			</li>'
@@ -120,7 +121,7 @@ function init() {
     document.getElementById("navbarContainer").innerHTML = navbarContent;
   }
 
-var topLevelNavLinkIds = ["Home", "About", "Membership", "Projects", "Events", "Corporate", "Forms"];
+var topLevelNavLinkIds = ["Home", "About", "Resources", "Projects", "Events", "Corporate", "Forms"];
 for (index = 0; index < topLevelNavLinkIds.length; index++) {
 	if (document.title.includes(topLevelNavLinkIds[index])) {
 		document.getElementById(topLevelNavLinkIds[index]).classList.add("active");
