@@ -30,7 +30,6 @@ var header = ""
 +  '			</li>'
 +  '			<li><a href="faq.html">FAQ</a></li>'
 +  '			<li><a href="events.html" id="Events">Events</a></li>'
-+  '			<li><a href="http://projects.texasacm.org" id="Projects">Projects</a></li>'
 +  '			<li>'
 +  '				<a href="corporate.html" class="submenu" id="Corporate">Corporate</a>'
 +  '				<ul>'
