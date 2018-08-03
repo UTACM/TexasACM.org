@@ -4970,3 +4970,8 @@
 .largeFontAwesome {
 	font-size: 20px;
 }
+
+#mailchimpList {
+	max-width: 40vw;
+	margin: auto;
+}

@@ -28,6 +28,11 @@ License: pixelarity.com/license
 	gtag('js', new Date());
 	gtag('config', 'UA-109009244-1');
 	</script>
+	<script>
+    var shiftWindow = function() { scrollBy(0, -100) };
+    window.addEventListener("hashchange", shiftWindow);
+    function load() { if (window.location.hash) shiftWindow(); }
+  </script>
 
 	<!-- MailChimp newsletter add-on-->
 	<!-- <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/79fed73196d8c1087cd42c541/8e3ec244a0f2b7c90ada83721.js");</script> -->
@@ -117,7 +122,7 @@ License: pixelarity.com/license
 			 <form action="https://texasacm.us11.list-manage.com/subscribe/post?u=79fed73196d8c1087cd42c541&amp;id=88d0a26018" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 						 <div id="mc_embed_signup_scroll">
 							 <p><b>Subscribe to our mailing list!</b></p>
-							 <div class="mc-field-group">
+							 <div class="mc-field-group" id="mailchimpList">
 								 <input type="email" value="Email Address" name="EMAIL" class="required email" id="mce-EMAIL">
 							 </div>
 							 <div id="mce-responses" class="clear">
@@ -125,12 +130,13 @@ License: pixelarity.com/license
 								 <div class="response" id="mce-success-response" style="display:none"></div>
 							 </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 							 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_79fed73196d8c1087cd42c541_88d0a26018" tabindex="-1" value=""></div>
+							 <br>
 							 <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button special"></div>
 						 </div>
 					 </form>
 		 </td>
 		 <td width="50vw" dir="ltr" class="full">
-				<p>Become a Member</p>
+				<p><b>Become a Member</b></p>
 				<center>
 					 <p>Sign up below and make sure to stop by <a href="about.html#office-info" target="_blank">the office</a> to say hello!</p>
 					 <button class="button special" onclick="window.open('http://texasacm.org/forms.html?join')"><span>Sign Up</span></button>
@@ -139,11 +145,11 @@ License: pixelarity.com/license
 	</tr>
 	<tr>
 		<td width="50%" dir="ltr" class="full" style="align: center;">
-			<p>Upcoming Events</p>
+			<p><b>Upcoming Events</b></p>
 			<iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 		</td>
 		<td width="50%" dir="ltr" class="full">
-			<p>Current Events</p>
+			<p><b>Current Events</b></p>
 			<iframe id="current-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" style="display:block;"></iframe>
 		</td>
 	</tr>
