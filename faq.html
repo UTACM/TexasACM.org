@@ -28,6 +28,11 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-109009244-1');
 		</script>
+		<script>
+			var shiftWindow = function() { scrollBy(0, -100) };
+			window.addEventListener("hashchange", shiftWindow);
+			function load() { if (window.location.hash) shiftWindow(); }
+		</script>
 
 		<!-- Favicon and icons for various devices! -->
 		<link rel="stylesheet" type="text/css" href="assets/css/tooltip.css">
