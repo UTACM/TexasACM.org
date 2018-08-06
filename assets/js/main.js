@@ -335,7 +335,7 @@ var settings = {
 				$(
 					'<div id="navPanel">' +
 						'<nav>' +
-							 '<iframe src="mobileheader.html?' + title + '" frameborder="0" scrolling="no" class="mobile-header-iframe"></iframe>' + 
+							 '<iframe src="mobileheader.html?' + title + '" frameborder="0" scrolling="no" class="mobile-header-iframe"></iframe>' +
 						'</nav>' +
 						'<a href="#navPanel" class="close"></a>' +
 					'</div>'
@@ -358,3 +358,9 @@ var settings = {
 	});
 
 })(jQuery);
+
+var shiftWindow = function() { scrollBy(0, -100) };
+window.addEventListener("hashchange", shiftWindow);
+function load() {
+	if (window.location.hash) shiftWindow();
+}
