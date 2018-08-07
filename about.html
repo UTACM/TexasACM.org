@@ -321,16 +321,21 @@
 		<!-- Swap Officer Photo for Seal -->
 		<script type="text/javascript">
 			function mouseOverPresident() {
-				$('img.pres').animate({'opacity': 0}, 200).promise().done(function() {
+				$('img.pres').stop().animate({'opacity': 0}, 200).promise().done(function() {
 					$('img.pres').attr('src', 'Project-Sciurus.png');
+					$('img.pres').animate({'opacity': 1}, 500).delay(3000).animate({'opacity': 0}, 200).promise().done(function() {
+					$('img.pres').attr('src', 'images/officers1819/president.jpg');
 					$('img.pres').animate({'opacity': 1}, 500);
+				});;
 				});
 			}
 			function mouseOutPresident() {
-				$('img.pres').animate({'opacity': 0}, 200).promise().done(function() {
+				if ($('img.pres')[0].src.includes('Project-Sciurus')) {
+					$('img.pres').stop().animate({'opacity': 0}, 200).promise().done(function() {
 					$('img.pres').attr('src', 'images/officers1819/president.jpg');
 					$('img.pres').animate({'opacity': 1}, 500);
-				});
+				});	
+				}
 			}
 		</script>
 	</body>
