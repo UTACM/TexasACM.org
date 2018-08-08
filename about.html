@@ -28,7 +28,6 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-109009244-1');
 		</script>
-
 		<!-- Favicon and icons for various devices! -->
 		<link rel="stylesheet" type="text/css" href="assets/css/tooltip.css">
 		<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
@@ -159,7 +158,7 @@
 						<div class="team-cards-row">
 							<div class="team-cards-col">
 								<div class="team-card">
-									<img src="images/officers1819/president.jpg" alt="President of Texas ACM"/>
+									<img src="images/officers1819/president.jpg" onmouseover="mouseOverPresident()" onmouseout="mouseOutPresident()" onclick="mouseOverPresident()" alt="President of Texas ACM" class="pres"/>
 									<div class="card-info-container">
 										<h2 class="officer-name">April <br>Hare</h2>
 										<p class="officer-title">President of Texas ACM</p>
@@ -318,5 +317,30 @@
 		<!-- Copy to Clipboard and Tooltip functionality for Contact Buttons -->
 		<script src="assets/js/clipboard.min.js"></script>
 		<script src="assets/js/clipboard-tooltips.js"></script>
+
+		<!-- Swap Officer Photo for Seal -->
+		<script type="text/javascript">
+			function mouseOverPresident() {
+				var transitionDuration = 150;
+				var pauseDuration = 500;
+				$('img.pres').stop().animate({'opacity': 0}, transitionDuration).promise().done(function() {
+					$('img.pres').attr('src', 'Project-Sciurus.png');
+					$('img.pres').animate({'opacity': 1}, transitionDuration).delay(pauseDuration).animate({'opacity': 0}, transitionDuration)
+					$('img.pres').promise().done(function() {
+						$('img.pres').attr('src', 'images/officers1819/president.jpg');
+						$('img.pres').animate({'opacity': 1}, transitionDuration);
+					});
+				});
+			}
+			function mouseOutPresident() {
+				var transitionDuration = 150;
+				if ($('img.pres')[0].src.includes('Project-Sciurus')) {
+					$('img.pres').stop().animate({'opacity': 0}, transitionDuration).promise().done(function() {
+						$('img.pres').attr('src', 'images/officers1819/president.jpg');
+						$('img.pres').animate({'opacity': 1}, transitionDuration);
+					});	
+				}
+			}
+		</script>
 	</body>
 </html>

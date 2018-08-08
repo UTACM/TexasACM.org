@@ -4931,6 +4931,10 @@
 	color: #ccc;
 }
 
+#footer a:hover {
+	color: #c15b05;
+}
+
 #header a, #header h1 {
 	color:#ccc;
 }
@@ -4969,4 +4973,9 @@
 
 .largeFontAwesome {
 	font-size: 20px;
+}
+
+#mailchimpList {
+	max-width: 40vw;
+	margin: auto;
 }
