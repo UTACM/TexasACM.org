@@ -158,7 +158,7 @@
 						<div class="team-cards-row">
 							<div class="team-cards-col">
 								<div class="team-card">
-									<img src="images/officers1819/president.jpg" onmouseover="mouseOverPresident()" onmouseout="mouseOutPresident()" alt="President of Texas ACM" class="pres"/>
+									<img src="images/officers1819/president.jpg" onmouseover="mouseOverPresident()" onmouseout="mouseOutPresident()" onclick="mouseOverPresident()" alt="President of Texas ACM" class="pres"/>
 									<div class="card-info-container">
 										<h2 class="officer-name">April <br>Hare</h2>
 										<p class="officer-title">President of Texas ACM</p>
@@ -332,7 +332,7 @@
 			function mouseOutPresident() {
 				if ($('img.pres')[0].src.includes('Project-Sciurus')) {
 					$('img.pres').stop().animate({'opacity': 0}, 200).promise().done(function() {
-					$('img.pres').attr('src', 'images/officers1819/president.jpg');
+						$('img.pres').attr('src', 'images/officers1819/president.jpg');
 						$('img.pres').animate({'opacity': 1}, 500);
 					});	
 				}
