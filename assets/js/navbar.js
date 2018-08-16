@@ -14,22 +14,23 @@ var header = ""
 +  '				<a href="about.html" class="submenu" id="About">About</a>'
 +  '				<ul>'
 +  '					<li><a href="about.html#about-us">About Us</a></li>'
++  '					<li><a href="about.html#what-we-do">What We Do</a></li>'
 +  '					<li><a href="about.html#why-join">Why Join</a></li>'
-+  '					<li><a href="about.html#about-office">Our Office</a></li>'
-+  '					<li><a href="about.html#about-team">Our Team</a></li>'
++  '					<li><a href="about.html#our-team">Our Team</a></li>'
 +  '				</ul>'
 +  '			</li>'
 +  '			<li>'
-+  '				<a href="membership.html" class="submenu" id="Membership">Membership</a>'
++  '				<a href="resources.html" class="submenu" id="Resources">Resources</a>'
 +  '				<ul>'
-+  '					<li><a href="membership.html#benefits">Benefits</a></li>'
-+  '					<li><a href="membership.html#events">Events</a></li>'
-+  '					<li><a href="membership.html#lockers">Lockers</a></li>'
++  '					<li><a href="resources.html#resume-book">Résumé Book</a></li>'
++  '					<li><a href="resources.html#become-member">Become a Member</a></li>'
++  '					<li><a href="resources.html#join-mentorship">Mentorship</a></li>'
++  '					<li><a href="resources.html#lockers">Lockers</a></li>'
++  '					<li><a href="resources.html#hr-contact">HR Contact</a></li>'
 +  '				</ul>'
 +  '			</li>'
-+  '			<li><a href="faq.html">FAQ</a></li>'
++  '			<li><a href="faq.html" class="submenu" id="FAQ">FAQ</a></li>'
 +  '			<li><a href="events.html" id="Events">Events</a></li>'
-+  '			<li><a href="http://projects.texasacm.org" id="Projects">Projects</a></li>'
 +  '			<li>'
 +  '				<a href="corporate.html" class="submenu" id="Corporate">Corporate</a>'
 +  '				<ul>'
@@ -43,7 +44,6 @@ var header = ""
 +  '					<li><a href="forms.html?Signin">Sign In</a></li>'
 +  '					<li><a href="forms.html?Join">Join ACM</a></li>'
 +  '					<li><a href="forms.html?Pc">Prog Comp</a></li>'
-+  '					<li><a href="forms.html?Complaints">HR Complaint</a></li>'
 +  '				</ul>'
 +  '			</li>'
 +  '		</ul>'
@@ -120,7 +120,7 @@ function init() {
     document.getElementById("navbarContainer").innerHTML = navbarContent;
   }
 
-var topLevelNavLinkIds = ["Home", "About", "Membership", "Projects", "Events", "Corporate", "Forms"];
+var topLevelNavLinkIds = ["Home", "About", "Resources", "FAQ", "Projects", "Events", "Corporate", "Forms"];
 for (index = 0; index < topLevelNavLinkIds.length; index++) {
 	if (document.title.includes(topLevelNavLinkIds[index])) {
 		document.getElementById(topLevelNavLinkIds[index]).classList.add("active");
