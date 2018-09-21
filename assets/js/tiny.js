@@ -1,7 +1,7 @@
 // Use of this Script Requires the Tabletop.js Library. The Calling HTML File must include tabletop.js
 
 // Address of the Google Sheets Database
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit?usp=sharing';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1bHF_1i9F031XrSvlw4g41X4-0ZfG9mpvWiqLdKHh4j0/edit?usp=sharing';
 
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
@@ -13,6 +13,8 @@ window.addEventListener('DOMContentLoaded', init)	// Calls method init when Shee
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
+	var nameColumnTitle = "Name\n(Must be 1 word)";
+	var addressColumnTitle = "Address\n(include http:// if external link)";
 	var forms = [];
 	var addresses = [];
 	var imbedInACM = [];
@@ -21,9 +23,9 @@ function showInfo(data) {
 	var desiredForm = (window.location.href).substring((window.location.href).indexOf('?') + 1 );
 	var index = 0;
 	//Builds the Forms and Addresses arrays using the Google Sheets Data
-	while (data[index] != null && !(data[index].Address == "" && data[index].Name == "") && !found) {
-		forms[index] = data[index].Name;
-		addresses[index] = data[index].Address;
+	while (data[index] != null && !(data[index][addressColumnTitle] == "" && data[index][nameColumnTitle] == "") && !found) {
+		forms[index] = data[index][nameColumnTitle];
+		addresses[index] = data[index][addressColumnTitle];
 		imbedInACM[index] = embedInACMorNot(data[index].EmbedInACM);
 		if (forms[index].toLowerCase()==desiredForm.toLowerCase() && desiredForm != "") {
 			found = true;
@@ -44,7 +46,7 @@ function showInfo(data) {
 		table += '<h1 style="text-align:left;">Forms</h1><div id="forms-table-div" style="width:30%; margin:auto; text-align:center;" ><table id="forms-table" style="text-align:left;"><tr><th>List of Available Forms</th></tr>'
 		for (index = 0; index < numberOfForms; index++) {
 			if (forms[index] != "" && addresses[index] != "") 
-				table += "<tr><td><a href='"+"forms.html?"+forms[index] + "'>" + forms[index] + "</td></a></td></tr>";
+				table += "<tr><td><a href='"+forms[index] + "'>" + forms[index] + "</td></a></td></tr>";
 		}
 		table += '</table>';
 		// Adds the Edit button under the table
@@ -52,7 +54,7 @@ function showInfo(data) {
 		table += '</div>';
 		
 		document.getElementById("dynamic").innerHTML = table;	        	
-		document.title = "All Forms | Texas ACM";
+		document.title = "All Urls | Texas ACM";
 	}
 
 	// If the desired form exists in Database
@@ -60,7 +62,7 @@ function showInfo(data) {
 		// If the desired form exists in Database, but no address is available, display Unavailable
 		if (addresses[index-1]=="") {
 			document.getElementById("dynamic").innerHTML = "<h1>Sorry, Form not available</h1><p>The ACM staff has not specified the form " + desiredForm +"'s address. Please notify an officer and try again later. Thanks</p>";	  
-			document.title = "Form not Available | Texas ACM";
+			document.title = "Url not Available | Texas ACM";
 		}
 		// If the desired form exists in Database
 		else {
@@ -73,10 +75,6 @@ function showInfo(data) {
 			else {
 				window.location.replace(addresses[index-1]);
 			}
-
-			
-
-
 		}
 	}
 }
