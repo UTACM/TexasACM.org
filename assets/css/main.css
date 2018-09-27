@@ -4980,3 +4980,17 @@
 	max-width: 40vw;
 	margin: auto;
 }
+
+#forms-table-div {
+	width:30%; 
+	margin:auto; 
+	text-align:center;
+}
+
+#forms-table {
+	text-align:left;
+}
+
+#forms-h1 {
+	text-align:left;
+}
