@@ -82,7 +82,7 @@ function showForm(form) {
 	else {
 		// if EmbedInACM is true, embed the form in an iFrame. Else, redirect
 		if (embedInACMorNot(form[embedColumn])) {
-			document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src="' + form[addressColumn] + '"></iframe>";	  
+			document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='" + form[addressColumn] + "'></iframe>";	  
 			document.title = desiredForm + " | Texas ACM";
 		}
 		else {
