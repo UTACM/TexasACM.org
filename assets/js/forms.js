@@ -77,7 +77,7 @@ function showForm(form) {
 	// If no address is available for, display Unavailable
 	if (form[addressColumn] == "") {
 		document.getElementById("dynamic").innerHTML = "<h1>Sorry, the form <strong>" + form[nameColumn] + "</strong> is not available</h1><p>The ACM staff has not specified the form " + form[nameColumn] +"'s address. Please notify an officer and try again later. Thanks</p>";	  
-		document.title = "Form not Available | Texas ACM";
+		document.title = "Form not available | Texas ACM";
 	}
 	else {
 		// if EmbedInACM is true, embed the form in an iFrame. Else, redirect
