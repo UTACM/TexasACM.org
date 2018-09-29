@@ -19,10 +19,10 @@ function showInfo(data) {
 	let desiredForm = getQueryString();
 	var index = indexOfDesiredForm(data, desiredForm);
 		
-	// If the desired form doesn"t exist, or no form is selected as desired
+	// If the desired form doesn't exist, or no form is selected as desired
 	if (index == -1) {
 		var content = "";
-		// If user wants to select a form, but form doesn"t exist in Database, say 'Form not found.'
+		// If user wants to select a form, but form doesn't exist in Database, say 'Form not found.'
 		if (desiredForm != "") {
 			content += "<p>The form <strong>" + desiredForm + "</strong> cannot be found. Here is a list of all forms:</p>";
 		}
@@ -55,12 +55,12 @@ function buildAllForms(data) {
 	content += "<table id='forms-table'><tr><th>List of Available Forms</th></tr>"
 
 	data.forEach(form => {
-		content += "<tr><td><a href="' + "forms.html?" + form[nameColumn] + '">" + form[nameColumn] + "</a></td></tr>";
+		content += "<tr><td><a href='forms.html?" + form[nameColumn] + "'>" + form[nameColumn] + "</a></td></tr>";
 	});
 	content += "</table>";
 	
 	// Edit button under the table
-	content += "<a href="' + public_spreadsheet_url + '"><button class='button admin'>Edit Forms List</button></a>";
+	content += "<a href='" + public_spreadsheet_url + "'><button class='button admin'>Edit Forms List</button></a>";
 	content += "</div>";
 	return content;
 }
@@ -76,7 +76,7 @@ function getQueryString() {
 function showForm(form) {
 	// If no address is available for, display Unavailable
 	if (form[addressColumn] == "") {
-		document.getElementById("dynamic").innerHTML = "<h1>Sorry, Form not available</h1><p>The ACM staff has not specified the form " + form[nameColumn] +"'s address. Please notify an officer and try again later. Thanks</p>";	  
+		document.getElementById("dynamic").innerHTML = "<h1>Sorry, the form <strong>" + form[nameColumn] + "</strong> is not available</h1><p>The ACM staff has not specified the form " + form[nameColumn] +"'s address. Please notify an officer and try again later. Thanks</p>";	  
 		document.title = "Form not Available | Texas ACM";
 	}
 	else {
