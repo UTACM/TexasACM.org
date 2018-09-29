@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", init)	// Calls method init when Shee
 function showInfo(data) {
 	let desiredLink = getQueryString();
 	var index = indexOfdesiredLink(data, desiredLink);
-		
+
 	// If the desired link doesn"t exist, or no link is selected as desired
 	if (index == -1) {
 		var content = "";
@@ -27,12 +27,12 @@ function showInfo(data) {
 			content += "<p>The link <strong>" + desiredLink + "</strong> cannot be found. Here is a list of all links:</p>";
 		}
 		content += buildAllLinks(data);
-		document.getElementById("dynamic").innerHTML = content;	        	
+		document.getElementById("dynamic").innerHTML = content;
 		document.title = "All links | Texas ACM";
 	}
 
 	// If the desired link exists in Database
-	else {	
+	else {
 		showlink(data[index]);
 	}
 }
@@ -44,8 +44,8 @@ function indexOfdesiredLink(data, desiredLink) {
 			if (data[index][nameColumn].toLowerCase() == desiredLink.toLowerCase()) {
 				return index;
 			}
-		}	
-	}		
+		}
+	}
 	return -1;
 }
 
@@ -59,7 +59,7 @@ function buildAllLinks(data) {
 		content += "<tr><td><a href='tiny.html?" + link[nameColumn] + "'>" + link[nameColumn] + "</a></td></tr>";
 	});
 	content += "</table>";
-	
+
 	// Edit button under the table
 	content += "<a href='" + public_spreadsheet_url + "'><button class='button admin'>Edit Links List</button></a>";
 	console.log(public_spreadsheet_url);
@@ -78,7 +78,7 @@ function getQueryString() {
 function showlink(link) {
 	// If no address is available for link, display Unavailable
 	if (link[addressColumn] == "") {
-		document.getElementById("dynamic").innerHTML = "<h1>Sorry, link not available</h1><p>The ACM staff has not specified the link " + link[nameColumn] +"'s address. Please notify an officer and try again later. Thanks</p>";	  
+		document.getElementById("dynamic").innerHTML = "<h1>Sorry, link not available</h1><p>The ACM staff has not specified the link " + link[nameColumn] +"'s address. Please notify an officer and try again later. Thanks</p>";
 		document.title = "Link not Available | Texas ACM";
 	}
 	else {
@@ -90,5 +90,5 @@ function hideLinkFromList(cell) {
 	if (cell == "")
 		return false;
 	else
-		return true;	
+		return true;
 }
