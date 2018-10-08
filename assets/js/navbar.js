@@ -30,7 +30,7 @@ var header = ""
 +  '				</ul>'
 +  '			</li>'
 +  '			<li><a href="faq.html" class="submenu" id="FAQ">FAQ</a></li>'
-+  '			<li><a href="events.html" id="Events">Events</a></li>'
++  '			<li><a href="calendar.html" id="Calendar">Calendar</a></li>'
 +  '			<li>'
 +  '				<a href="corporate.html" class="submenu" id="Corporate">Corporate</a>'
 +  '				<ul>'
@@ -120,7 +120,7 @@ function init() {
     document.getElementById("navbarContainer").innerHTML = navbarContent;
   }
 
-var topLevelNavLinkIds = ["Home", "About", "Resources", "FAQ", "Projects", "Events", "Corporate", "Forms"];
+var topLevelNavLinkIds = ["Home", "About", "Resources", "FAQ", "Projects", "Calendar", "Corporate", "Forms"];
 for (index = 0; index < topLevelNavLinkIds.length; index++) {
 	if (document.title.includes(topLevelNavLinkIds[index])) {
 		document.getElementById(topLevelNavLinkIds[index]).classList.add("active");
