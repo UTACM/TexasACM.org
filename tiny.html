@@ -6,8 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Events | Texas ACM</title>
-		<meta name="description" content="General Meetings, Tech Talks, Programming Competitions, Family Dinners, Game Nights, Retreats, and more!">
+		<title>Tiny | Texas ACM</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Pragma" content="no-cache">
@@ -19,7 +18,8 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
-
+		<script type="text/javascript" src="assets/js/tabletop.js"></script>
+		<script type="text/javascript" src="assets/js/tiny.js"></script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109009244-1"></script>
 		<script>
@@ -52,31 +52,29 @@
 	<body>
 		<!-- Header -->
 		<header id="header">
-			<iframe src="header.html?events" frameborder="0" scrolling="no" width="100%" id="header-iframe"></iframe>
+			<iframe src="header.html?forms" frameborder="0" scrolling="no" width="100%" id="header-iframe"></iframe>
 		</header>
 
 		<!-- Main -->
 		<section id="main" class="wrapper">
-			<div class="inner">
-				<!-- Content -->
-				<iframe src="https://calendar.google.com/calendar/embed?src=utacm.org_tblt9l9gskpcunjovsjfh8ei0g%40group.calendar.google.com&ctz=America/Chicago" style="border: 0; margin-top:5px; z-index:-1; width:100%; height:95vh"  frameborder="0" scrolling="no"></iframe>
-			</div>
+			<!-- The Div named "dynamic" is necessary for forms.js to Dynamic Generate Page Content-->
+			<div class="inner" id="dynamic"></div>
 		</section>
 
-			<!-- Footer -->
-			<footer id="footer">
-				<iframe src="footer.html" frameborder="0" scrolling="no" width="100%"></iframe>
-			</footer>
+		<!-- Footer -->
+		<footer id="footer">
+			<iframe src="footer.html" frameborder="0" scrolling="no" width="100%" id="footer-iframe"></iframe>
+		</footer>
 
-			<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/navbar.js"></script>
-			<script src="assets/js/main.js"></script>		<!-- Must be included after navbar.js -->
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/navbar.js"></script>
+		<script src="assets/js/main.js"></script>		<!-- Must be included after navbar.js -->
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 
 	</body>
 </html>

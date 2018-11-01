@@ -4812,7 +4812,7 @@
 
 			.operational-officer-title {
 				font-size: .9em;
-				color: #fff;
+				color: #000;
 				line-height: 1;
 				margin:0px;
 				margin-bottom:1em;
@@ -4979,4 +4979,18 @@
 #mailchimpList {
 	max-width: 40vw;
 	margin: auto;
+}
+
+#forms-table-div {
+	width:30%; 
+	margin:auto; 
+	text-align:center;
+}
+
+#forms-table {
+	text-align:left;
+}
+
+#forms-h1 {
+	text-align:left;
 }
