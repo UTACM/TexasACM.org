@@ -3,7 +3,6 @@
 // Address of the Google Sheets Database
 var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit?usp=sharing";
 let nameColumn = "Name\n(Must be 1 word)";
-let embedColumn = "Embed in ACM\n(Default value [blank] yes)";
 let addressColumn = "Address\n(include http:// if external link)";
 
 function init() {
@@ -80,14 +79,7 @@ function showForm(form) {
 		document.title = "Form not available | Texas ACM";
 	}
 	else {
-		// if EmbedInACM is true, embed the form in an iFrame. Else, redirect
-		if (embedInACMorNot(form[embedColumn])) {
-			document.getElementById("dynamic").innerHTML = "<iframe frameborder='0' scrolling='yes' width='100%' height='1000vh' src='" + form[addressColumn] + "'></iframe>";
-			document.title = desiredForm + " | Texas ACM";
-		}
-		else {
-			window.location.replace(form[addressColumn]);
-		}
+		window.location.replace(form[addressColumn]);
 	}
 }
 
