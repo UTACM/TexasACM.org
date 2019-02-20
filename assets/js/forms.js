@@ -82,11 +82,3 @@ function showForm(form) {
 		window.location.replace(form[addressColumn]);
 	}
 }
-
-//Checks the cell to see if it says 'no'
-function embedInACMorNot(cell) {
-	if (!cell == "" && (cell.charAt(0) == "N" || cell.charAt(0) == "n"))
-		return false;
-	else
-		return true;
-}
