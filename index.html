@@ -7,7 +7,8 @@ License: pixelarity.com/license
 <html>
 <head>
 	<title>Home | Texas ACM</title>
-	<meta name="description" content="Welcome to the website for UT Austin’s chapter of the Association for Computing Machinery.">
+	<meta name="description" content="Welcome to the UT Austin chapter of the Association for Computing Machinery.">
+	<meta name="keywords" content="utcs, acm, association-for-computing-machinery, texasacm">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Pragma" content="no-cache">
@@ -46,6 +47,10 @@ License: pixelarity.com/license
 	<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
 	<link rel="manifest" href="favicons/manifest.json">
+	<!-- FontAwesome v5 -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/v4-shims.css">
+
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
@@ -70,6 +75,14 @@ License: pixelarity.com/license
 		<div class="inner"></div>
 	</article>
 	<article>
+		<img src="images/slideshow/slide8.jpg" alt="" />
+		<div class="inner"></div>
+	</article>
+	<article>
+		<img src="images/slideshow/slide7.jpg" alt="" />
+		<div class="inner"></div>
+	</article>
+	<article>
 		<img src="images/slideshow/slide13.jpg" alt="" />
 		<div class="inner"></div>
 	</article>
@@ -83,14 +96,6 @@ License: pixelarity.com/license
 	</article>
 	<article>
 		<img src="images/slideshow/slide10.jpg" alt="" />
-		<div class="inner"></div>
-	</article>
-	<article>
-		<img src="images/slideshow/slide8.jpg" alt="" />
-		<div class="inner"></div>
-	</article>
-	<article>
-		<img src="images/slideshow/slide7.jpg" alt="" />
 		<div class="inner"></div>
 	</article>
 	<article>
@@ -152,8 +157,8 @@ License: pixelarity.com/license
 			<iframe id="upcoming-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 		</td>
 		<td width="50%" dir="ltr" class="full">
-			<p><b>Current Events</b></p>
-			<iframe id="current-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" style="display:block;"></iframe>
+			<p><b>Recent Events</b></p>
+			<iframe id="recent-iframe" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" style="display:block;"></iframe>
 		</td>
 	</tr>
 </table>
@@ -204,13 +209,13 @@ License: pixelarity.com/license
 		 }
 		 iFrameHeight = parseInt(screenHeight * 0.8);
 	}
-	var upcomingURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=timeline&width=" + iFrameWidth + "&height=" + iFrameHeight + "&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
-	var newsURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=events&width=" + iFrameWidth + "&height=" + iFrameHeight + "&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
-	var upcomingiframe = document.getElementById("current-iframe");
+	var upcomingURL = "https://calendar.google.com/calendar/b/1/embed?title=Upcoming%20Events&showPrint=0&showTabs=0&showCalendars=0&mode=AGENDA&height=" + iFrameHeight + "&wkst=1&bgcolor=%23FFFFFF&src=utacm.org_tblt9l9gskpcunjovsjfh8ei0g%40group.calendar.google.com&color=%23c15b05&ctz=America%2FChicago";
+	var newsURL = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftexas.acm%2F&tabs=timeline&width=" + iFrameWidth + "&height=" + iFrameHeight + "&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId";
+	var upcomingiframe = document.getElementById("upcoming-iframe");
 	upcomingiframe.src = upcomingURL;
 	upcomingiframe.width = iFrameWidth;
 	upcomingiframe.height = iFrameHeight;
-	var newsiframe = document.getElementById("upcoming-iframe");
+	var newsiframe = document.getElementById("recent-iframe");
 	newsiframe.src = newsURL;
 	newsiframe.width = iFrameWidth;
 	newsiframe.height = iFrameHeight;
