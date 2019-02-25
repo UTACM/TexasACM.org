@@ -4897,7 +4897,7 @@
 		border-bottom: none;
 		font-style: normal;
 		font-size: 12px;
-		max-font-size:
+		/*max-font-size:*/
 	}
 
 	.mobile-header-a {
@@ -4930,10 +4930,12 @@
 	.hideAnswer {
 		display: none;
 	}
+
 	.faq_question {
 		cursor: pointer;
-	color: #444;
+		color: #444;
 	}
+	
 	.faq_question:Hover {
 		color:#c15b05;
 	}
@@ -4953,6 +4955,7 @@
 	#header a, #header h1 {
 		color:#ccc;
 	}
+
 	#header a.active {
 		color: #c15b05;
 	}
