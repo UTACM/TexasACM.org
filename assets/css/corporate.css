@@ -1,0 +1,34 @@
+.tiers {
+	font-weight: bold;
+}
+
+.chk-img {
+	width:1.5em;
+}
+
+.checkmark {
+	vertical-align: middle;
+	text-align: center;
+}
+
+.perk-yes {
+	background-color: gainsboro;
+}
+
+.compare-table td {
+	border-bottom:1px solid gray;
+	line-height: 1.2;
+}
+
+.compare-table td:not(.first-col) {
+	border-left:1px solid gray;
+}
+
+/* Mobile scaling for corporate page*/
+@media only screen and (max-width: 540px) {
+	.compare-table td {
+		border-bottom:1px solid gray;
+		line-height: 1.2;
+		font-size: 3vw;
+	}
+}
