@@ -2,7 +2,8 @@
 AddHandler application/x-httpd-php56 .php
 Options +Indexes
 IndexOptions -FancyIndexing
-RedirectMatch ^/banquet /forms/banquet
+RedirectMatch ^/signin /forms/signin
+RedirectMatch ^/pc /forms/pc
 RedirectMatch ^/forms/(.*)$ /forms.html?$1
 RedirectMatch ^/tiny/(.*)$ /tiny.html?$1
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
