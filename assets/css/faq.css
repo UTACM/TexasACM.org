@@ -1,0 +1,12 @@
+.hideAnswer {
+	display: none;
+}
+
+.faq_question {
+	cursor: pointer;
+	color: #444;
+}
+
+.faq_question:Hover {
+	color:#c15b05;
+}
