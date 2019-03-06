@@ -1,5 +1,7 @@
 .tooltipped {
-	position:relative}
+	position:relative;
+}
+
 .tooltipped:after {
 	position:absolute;
 	z-index:1000000;
@@ -18,7 +20,9 @@
 	content:attr(aria-label);
 	background:rgba(0,0,0,0.8);
 	border-radius:3px;
-	-webkit-font-smoothing:subpixel-antialiased}
+	-webkit-font-smoothing:subpixel-antialiased;
+}
+
 .tooltipped:before {
 	position:absolute;
 	z-index:1000001;
@@ -28,7 +32,9 @@
 	color:rgba(0,0,0,0.8);
 	pointer-events:none;
 	content:"";
-	border:5px solid transparent}
+	border:5px solid transparent;
+}
+
 .tooltipped:hover:before,
 .tooltipped:hover:after,
 .tooltipped:active:before,
@@ -36,24 +42,33 @@
 .tooltipped:focus:before,
 .tooltipped:focus:after {
 	display:inline-block;
-	text-decoration:none}
+	text-decoration:none;
+}
+
 .tooltipped-s:after {
 	top:100%;
 	right:50%;
-	margin-top:5px}
+	margin-top:5px;
+}
+
 .tooltipped-s:before {
 	top:auto;
 	right:50%;
 	bottom:-5px;
 	margin-right:-5px;
-	border-bottom-color:rgba(0,0,0,0.8)}
+	border-bottom-color:rgba(0,0,0,0.8);
+}
+
 .tooltipped-s:after {
 	-webkit-transform:translateX(50%);
 	-ms-transform:translateX(50%);
-	transform:translateX(50%)}
+	transform:translateX(50%);
+}
+
 .tooltipped-s:after {
 	right:auto;
 	left:50%;
 	-webkit-transform:translateX(-50%);
 	-ms-transform:translateX(-50%);
-	transform:translateX(-50%)}
+	transform:translateX(-50%);
+}
