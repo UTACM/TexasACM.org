@@ -2,17 +2,19 @@
 
 // Address of the Google Sheets Database
 let public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1bHF_1i9F031XrSvlw4g41X4-0ZfG9mpvWiqLdKHh4j0/edit?usp=sharing';
+
+// Column Names from Google Sheets Database
 let nameColumn = "Name\n(Must be 1 word)";
 let visibilityColumn = "Visibility\n(Visible if Blank)";
 let addressColumn = "Address\n(include http:// if external link)";
+
+window.addEventListener("DOMContentLoaded", init)	// Calls method init when Sheets has loaded
 
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
                  callback: showInfo,
                  simpleSheet: true } );
 }
-
-window.addEventListener("DOMContentLoaded", init)	// Calls method init when Sheets has loaded
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
@@ -55,7 +57,6 @@ function buildAllLinks(data) {
 	content += "<table id='forms-table'><tr><th>List of Available Links</th></tr>"
 
 	data.forEach(link => {
-		if (!hideLinkFromList(link[visibilityColumn]))
 		content += "<tr><td><a href='tiny.html?" + link[nameColumn] + "'>" + link[nameColumn] + "</a></td></tr>";
 	});
 	content += "</table>";
@@ -84,11 +85,4 @@ function showlink(link) {
 	else {
 		window.location.replace(link[addressColumn]);
 	}
-}
-
-function hideLinkFromList(cell) {
-	if (cell == "")
-		return false;
-	else
-		return true;
 }
