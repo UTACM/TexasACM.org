@@ -3,6 +3,10 @@
 // Address of the Google Sheets Database
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1RFAdIn5Lz2t0axlfTqKpwsG3kdY_e_7wMkcQ8kZ_wIc/edit?usp=sharing';
 
+// Column Names from Google Sheets Database
+questionsColumn = "Question";
+answersColumn = "Answer";
+
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
                  callback: showInfo,
@@ -14,26 +18,22 @@ var unhiddenAnswer = "";
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
-	var questions = [];
-	var answers = [];
-	var index = 0;
-	//Takes the data from Google Sheets and builds an array of Questions and an array of Answers
-	while (data[index] != null && !(data[index].Question == "" || data[index].Answer == "")) {
-		questions[index] = data[index].Question;
-		answers[index] = data[index].Answer;
-		index++;
-	}
-
-	var numberOfEntries = index;
-	// Builds the HTML code from the Questions and Answers arrays
-	var faq = '<h2>Frequently Asked Questions</h2><div style="padding:0px 5%">';
-	for (var index = 0; index < numberOfEntries; index++) {
-		faq += '<h1 class="faq_question" onClick="unhideAnswer(' + index + ')">' + questions[index] + '</h1>';
-		faq += '<p id="answer' + index + '" class="hideAnswer">' + answers[index] + '</p>';
-	}
-	faq += '<center><a style="border-bottom: none" href="https://docs.google.com/spreadsheets/d/1RFAdIn5Lz2t0axlfTqKpwsG3kdY_e_7wMkcQ8kZ_wIc/edit#gid=0"><button class="button admin">Edit</button></a></center>';
+	var editButton = '<center><a style="border-bottom: none" href="' + public_spreadsheet_url + '"><button class="button admin">Edit</button></a></center>';
+	
 	// Injects the built HTML code into the div Dynamic
-	document.getElementById("dynamic").innerHTML = faq;
+	document.getElementById("dynamic").innerHTML = buildFAQTable(data) + editButton;
+}
+
+// Builds the HTML Table code from the Database Data
+function buildFAQTable(data) {
+	var index = 0;
+	var content = '<h2>Frequently Asked Questions</h2><div style="padding:0px 5%">';
+	data.forEach(form => {
+		content += '<h1 class="faq_question" onClick="unhideAnswer(' + index + ')">' + data[index][questionsColumn] + '</h1>';
+		content += '<p id="answer' + index + '" class="hideAnswer">' + data[index][answersColumn] + '</p>';
+		index++;
+	});
+	return content;
 }
 
 // When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and 
