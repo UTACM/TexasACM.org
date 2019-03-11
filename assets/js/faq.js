@@ -31,6 +31,7 @@ function showInfo(data) {
 		faq += '<h1 class="faq_question" onClick="unhideAnswer(' + index + ')">' + questions[index] + '</h1>';
 		faq += '<p id="answer' + index + '" class="hideAnswer">' + answers[index] + '</p>';
 	}
+	faq += '<center><a style="border-bottom: none" href="https://docs.google.com/spreadsheets/d/1RFAdIn5Lz2t0axlfTqKpwsG3kdY_e_7wMkcQ8kZ_wIc/edit#gid=0"><button class="button admin">Edit</button></a></center>';
 	// Injects the built HTML code into the div Dynamic
 	document.getElementById("dynamic").innerHTML = faq;
 }
