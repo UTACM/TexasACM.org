@@ -7,19 +7,20 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1RFAdIn5Lz2
 questionsColumn = "Question";
 answersColumn = "Answer";
 
+window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
+
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
                  callback: showInfo,
                  simpleSheet: true } );
 }
 
-window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
 var unhiddenAnswer = "";
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
 	var editButton = '<center><a style="border-bottom: none" href="' + public_spreadsheet_url + '"><button class="button admin">Edit</button></a></center>';
-	
+
 	// Injects the built HTML code into the div Dynamic
 	document.getElementById("dynamic").innerHTML = buildFAQTable(data) + editButton;
 }
