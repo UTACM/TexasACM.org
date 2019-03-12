@@ -11,7 +11,7 @@ var importanceColumn = "Importance";
 var justificationColumn = "Justification";
 var finishedColumn = "Finished";
 
-window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
+window.addEventListener('DOMContentLoaded', init) 	// Calls method init when Sheets has loaded
 
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
