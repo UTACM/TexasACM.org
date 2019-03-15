@@ -2,16 +2,18 @@
 
 // Address of the Google Sheets Database
 var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1wwobshcqPMDMPzTL9G1k2cT6bHfVnyw2He2gCFcuBxI/edit?usp=sharing";
+
+// Column Names from Google Sheets Database
 let nameColumn = "Name\n(Must be 1 word)";
 let addressColumn = "Address\n(include http:// if external link)";
+
+window.addEventListener("DOMContentLoaded", init)	// Calls method init when Sheets has loaded
 
 function init() {
 	Tabletop.init( { key: public_spreadsheet_url,
                  callback: showInfo,
                  simpleSheet: true } );
 }
-
-window.addEventListener("DOMContentLoaded", init)	// Calls method init when Sheets has loaded
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
@@ -60,10 +62,12 @@ function buildAllForms(data) {
 
 	// Edit button under the table
 	content += "<a href='" + public_spreadsheet_url + "'><button class='button admin'>Edit Forms List</button></a>";
+
 	content += "</div>";
 	return content;
 }
 
+// Get the part of the URL after the question mark in URL.
 function getQueryString() {
 	var result = "";
 	if ((window.location.href).indexOf("?") > 0) {
