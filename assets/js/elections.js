@@ -1,7 +1,7 @@
 // Use of this Script Requires the Tabletop.js Library. The Calling HTML File must include tabletop.js
 
 // Address of the Google Sheets Database
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1hFKtkMFVtVstEp6-yJWl0GNE9Xn8uErMGQ4XmRznbzs/edit?usp=sharing';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1ztxne39u4smNKquHZXnDnHuObXEzDYSABe8cEY0J5-c/edit?usp=sharing';
 
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
@@ -51,7 +51,7 @@ function showInfo(data) {
 		var misc = data[index]["Is there anything else you'd like us to know?"];
 		var order = data[index]["Position Preferences"];
 
-		var internalContent = '<h3>' + firstName + " " + lastName + '</h3>' 
+		var internalContent = '<h3>' + firstName + " " + lastName + '</h3>'
 			+ '<div style="padding-left: 2%; padding-right: 2%" >'
 			+ '<strong>Qualifications</strong>'
 			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + qualifications.replace('\n', "<br />") + '</p></div>'
@@ -99,7 +99,7 @@ function showInfo(data) {
 		// link = "";
 		// link = webURL[index];
 
-		// testing += '<h3>' + firstName + " " + lastName + '</h3>' 
+		// testing += '<h3>' + firstName + " " + lastName + '</h3>'
 		// + '<p>' + platform + '</p>'
 		// + '<p>' + misc + '</p>'
 		// + '<p>' + qualifications + '</p>';
@@ -120,16 +120,16 @@ function showInfo(data) {
 	document.getElementById("cp_candidates").innerHTML = cp_table;
 }
 
-// When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and 
+// When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and
 // Unhide the answer corresponding to the clicked on answer.
 // If the currently displaying answer is the same as the answer corresponding to the clicked on question,
 // it will be hidden and no new answer will be unhidden
 function unhidePosition(position) {
 	if (position.classList=="hidePosition") {
-		position.classList.remove("hidePosition"); 		
+		position.classList.remove("hidePosition");
 	}
 	else {
-		position.classList.add("hidePosition"); 		
+		position.classList.add("hidePosition");
 
 	}
 }
