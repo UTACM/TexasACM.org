@@ -22,17 +22,6 @@ var socialContent = '';
 var webContent = '';
 var marketingContent = '';
 
-//
-var presidential_table = '';
-var hr_table = '';
-var corporate_table = '';
-var internal_table = '';
-var academics_table = '';
-var finance_table = '';
-var social_table = '';
-var web_table = '';
-var cp_table = '';
-
 window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
 var unhiddenPosition = "";
 
@@ -58,15 +47,15 @@ function init() {
 
     buildPositionTable(data);
 
-    document.getElementById("pres_candidates").innerHTML = presidential_table;
-    document.getElementById("hr_candidates").innerHTML = hr_table;
-    document.getElementById("corporate_candidates").innerHTML = corporate_table;
-    document.getElementById("internal_candidates").innerHTML = internal_table;
-    document.getElementById("academics_candidates").innerHTML = academics_table;
-    document.getElementById("finance_candidates").innerHTML = finance_table;
-    document.getElementById("social_candidates").innerHTML = social_table;
-    document.getElementById("web_candidates").innerHTML = web_table;
-    document.getElementById("cp_candidates").innerHTML = cp_table;
+    document.getElementById("pres_candidates").innerHTML = presidentContent;
+    document.getElementById("hr_candidates").innerHTML = hrContent;
+    document.getElementById("corporate_candidates").innerHTML = corporateContent;
+    document.getElementById("internal_candidates").innerHTML = internalContent;
+    document.getElementById("academics_candidates").innerHTML = academicsContent;
+    document.getElementById("finance_candidates").innerHTML = financeContent;
+    document.getElementById("social_candidates").innerHTML = socialContent;
+    document.getElementById("web_candidates").innerHTML = webContent;
+    document.getElementById("marketing_candidates").innerHTML = marketingContent;
   }
 
 
@@ -135,9 +124,7 @@ function init() {
   function unhidePosition(position) {
     if (position.classList=="hidePosition") {
       position.classList.remove("hidePosition");
-    }
-    else {
+    } else {
       position.classList.add("hidePosition");
-
     }
   }
