@@ -22,6 +22,15 @@ var socialContent = '';
 var webContent = '';
 var marketingContent = '';
 
+var presidential_table = '';
+var hr_table = '';
+var corporate_table = '';
+var internal_table = '';
+var academics_table = '';
+var finance_table = '';
+var social_table = '';
+var web_table = '';
+var cp_table = '';
 window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
 var unhiddenPosition = "";
 
