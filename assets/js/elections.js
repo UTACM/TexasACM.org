@@ -3,133 +3,127 @@
 // Address of the Google Sheets Database
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1ztxne39u4smNKquHZXnDnHuObXEzDYSABe8cEY0J5-c/edit?usp=sharing';
 
-function init() {
-Tabletop.init( { key: public_spreadsheet_url,
-                 callback: showInfo,
-                 simpleSheet: true } );
-}
+let firstNameColumn = "First Name";
+let lastNameColumn = "Last Name";
+let positionColumn = "SO Position";
+let qualificationsColumn = "Qualifications";
+let platformColumn = "Officer Platform";
+let miscColumn = "Is there anything else you'd like us to know?";
+let orderColumn = "";
+
+// Distinct Offices Content
+var presidentContent = '';
+var hrContent = '';
+var corporateContent = '';
+var internalContent = '';
+var academicsContent = '';
+var financeContent = '';
+var socialContent = '';
+var webContent = '';
+var marketingContent = '';
 
 window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
 var unhiddenPosition = "";
 
+function init() {
+  Tabletop.init( { key: public_spreadsheet_url,
+    callback: showInfo,
+    simpleSheet: true } );
+  }
 
-// Method that gets called when data has been pulled from Google Sheets
-function showInfo(data) {
-	//Note: If the column name is multiword, that is fine, since
-	// data[0].Name === data[0]["Name"]. So, you can write: data[0]["First Name"]
-	// var presidential_table = "Not yet available...";
-	// var hr_table = "Not yet available...";
-	// var corporate_table = "Not yet available...";
-	// var internal_table = "Not yet available...";
-	// var academics_table = "Not yet available...";
-	// var finance_table = "Not yet available...";
-	// var social_table = "Not yet available...";
-	// var web_table = "Not yet available...";
-	// var cp_table = "Not yet available...";
+  // Method that gets called when data has been pulled from Google Sheets
+  function showInfo(data) {
+    //Note: If the column name is multiword, that is fine, since
+    // data[0].Name === data[0]["Name"]. So, you can write: data[0]["First Name"]
+    // var presidential_table = "Not yet available...";
+    // var hr_table = "Not yet available...";
+    // var corporate_table = "Not yet available...";
+    // var internal_table = "Not yet available...";
+    // var academics_table = "Not yet available...";
+    // var finance_table = "Not yet available...";
+    // var social_table = "Not yet available...";
+    // var web_table = "Not yet available...";
+    // var cp_table = "Not yet available...";
 
-	var presidential_table = "";
-	var hr_table = "";
-	var corporate_table = "";
-	var internal_table = "";
-	var academics_table = "";
-	var finance_table = "";
-	var social_table = "";
-	var web_table = "";
-	var cp_table = "";
-	var index = 0;
-	var testing = "";
-
-
-	// alert("A");
-	// alert(data[0]["SO Position"].includes("President")===true);
-	while (data[index] != null) {
-		var firstName = data[index]['First Name'];
-		var lastName = data[index]["Last Name"];
-		var officerPos = data[index]["SO Position"];
-		var qualifications = data[index]["Qualifications"];
-		var platform = data[index]["Officer Platform"];
-		var misc = data[index]["Is there anything else you'd like us to know?"];
-		var order = data[index]["Position Preferences"];
-
-		var internalContent = '<h3>' + firstName + " " + lastName + '</h3>'
-			+ '<div style="padding-left: 2%; padding-right: 2%" >'
-			+ '<strong>Qualifications</strong>'
-			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + qualifications.replace('\n', "<br />") + '</p></div>'
-			+ '<strong>Platform</strong>'
-			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + platform.replace('\n', "<br />") + '</p></div>';
-		if (misc.length > 0)
-			internalContent += '<strong>Other things to know</strong>'
-			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + misc.replace('\n', "<br />") + '</p></div>';
-		if (order.length > 0)
-			internalContent += '<strong>Position Preferences</strong>'
-			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + order + '</p></div>';
-		internalContent += '</div>';
-
-		if (data[index]["SO Position"].includes("President")===true) {
-			presidential_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Human Resources")===true) {
-			hr_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Corporate")===true) {
-			corporate_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Internal")===true) {
-			internal_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Academics")===true) {
-			academics_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Finance")===true) {
-			finance_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Social")===true) {
-			social_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Webmaster")===true) {
-			web_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Competitive Programming")===true) {
-			cp_table += internalContent;
-		}
+    document.getElementById("pres_candidates").innerHTML = presidential_table;
+    document.getElementById("hr_candidates").innerHTML = hr_table;
+    document.getElementById("corporate_candidates").innerHTML = corporate_table;
+    document.getElementById("internal_candidates").innerHTML = internal_table;
+    document.getElementById("academics_candidates").innerHTML = academics_table;
+    document.getElementById("finance_candidates").innerHTML = finance_table;
+    document.getElementById("social_candidates").innerHTML = social_table;
+    document.getElementById("web_candidates").innerHTML = web_table;
+    document.getElementById("cp_candidates").innerHTML = cp_table;
+  }
 
 
-		// Writes HTML code based on Form responses
-		// alert(webURL[index] == undefined);
-		// link = "";
-		// link = webURL[index];
+  function buildPositionTable(data) {
+    unclassifiedContent = '';
+    while (data[index] != null) {
+      data.forEach(form => {
+        '<h3>' + data[index][firstNameColumn] + " " + data[index][lastNameColumn] + '</h3>'
+        + '<div style="padding-left: 2%; padding-right: 2%" >'
+        + '<strong>Qualifications</strong>'
+        + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][qualificationsColumn].replace('\n', "<br />") + '</p></div>'
+        + '<strong>Platform</strong>'
+        + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][platformColumn].replace('\n', "<br />") + '</p></div>';
+      })
+      '<h3>' + data[index][firstNameColumn] + " " + data[index][lastNameColumn] + '</h3>'
+      + '<div style="padding-left: 2%; padding-right: 2%" >'
+      + '<strong>Qualifications</strong>'
+      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][qualificationsColumn].replace('\n', "<br />") + '</p></div>'
+      + '<strong>Platform</strong>'
+      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][platformColumn].replace('\n', "<br />") + '</p></div>';
+      if (data[index][miscColumn].length > 0)
+      unclassifiedContent += '<strong>Other things to know</strong>'
+      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][miscColumn].replace('\n', "<br />") + '</p></div>';
+      if (data[index][orderColumn].length > 0)
+      unclassifiedContent += '<strong>Position Preferences</strong>'
+      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][orderColumn] + '</p></div>';
+      unclassifiedContent += '</div>'
+    }
+    index++;
 
-		// testing += '<h3>' + firstName + " " + lastName + '</h3>'
-		// + '<p>' + platform + '</p>'
-		// + '<p>' + misc + '</p>'
-		// + '<p>' + qualifications + '</p>';
+    if (data[index][positionColumn].includes("President")===true) {
+      presidential_table += unclassifiedContent;
+    }
+    if (data[index][positionColumn].includes("Human Resources")===true) {
+      hr_table += unclassifiedContent;
+    }
+    if (data[index][positionColumn].includes("Corporate")===true) {
+      corporate_table += unclassifiedContent;
+    }
+    if (data[index][positionColumn].includes("Internal")===true) {
+      internal_table += unclassifiedContent;
+    }
+    if (data[index][positionColumn].includes("Academics")===true) {
+      academics_table += unclassifiedContent;
+    }
+    if (data[index][positionColumn].includes("Finance")===true) {
+      finance_table += unclassifiedContent;
+    }
+    if (data[index][positionColumn].includes("Social")===true) {
+      social_table += unclassifiedContent;
+    }
+    if (data[index][positionColumn].includes("Webmaster")===true) {
+      web_table += unclassifiedContent;
+    }
+    if (data[index][positionColumn].includes("Marketing")===true) {
+      cp_table += unclassifiedContent;
+    }
 
+  }
 
-		index++;
-	}
+  // When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and
+  // Unhide the answer corresponding to the clicked on answer.
+  // If the currently displaying answer is the same as the answer corresponding to the clicked on question,
+  // it will be hidden and no new answer will be unhidden
+  function unhidePosition(position) {
+    if (position.classList=="hidePosition") {
+      position.classList.remove("hidePosition");
+    }
+    else {
+      position.classList.add("hidePosition");
 
-	// document.getElementById("testing").innerHTML = testing;
-	document.getElementById("pres_candidates").innerHTML = presidential_table;
-	document.getElementById("hr_candidates").innerHTML = hr_table;
-	document.getElementById("corporate_candidates").innerHTML = corporate_table;
-	document.getElementById("internal_candidates").innerHTML = internal_table;
-	document.getElementById("academics_candidates").innerHTML = academics_table;
-	document.getElementById("finance_candidates").innerHTML = finance_table;
-	document.getElementById("social_candidates").innerHTML = social_table;
-	document.getElementById("web_candidates").innerHTML = web_table;
-	document.getElementById("cp_candidates").innerHTML = cp_table;
-}
-
-// When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and
-// Unhide the answer corresponding to the clicked on answer.
-// If the currently displaying answer is the same as the answer corresponding to the clicked on question,
-// it will be hidden and no new answer will be unhidden
-function unhidePosition(position) {
-	if (position.classList=="hidePosition") {
-		position.classList.remove("hidePosition");
-	}
-	else {
-		position.classList.add("hidePosition");
-
-	}
-}
+    }
+  }
