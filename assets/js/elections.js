@@ -9,7 +9,7 @@ let positionColumn = "SO Position";
 let qualificationsColumn = "Qualifications";
 let platformColumn = "Officer Platform";
 let miscColumn = "Is there anything else you'd like us to know?";
-let orderColumn = "";
+let orderColumn = "Position Preferences";
 
 // Distinct Offices Content
 var presidentContent = '';
@@ -22,6 +22,7 @@ var socialContent = '';
 var webContent = '';
 var marketingContent = '';
 
+//
 var presidential_table = '';
 var hr_table = '';
 var corporate_table = '';
@@ -31,6 +32,7 @@ var finance_table = '';
 var social_table = '';
 var web_table = '';
 var cp_table = '';
+
 window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
 var unhiddenPosition = "";
 
@@ -54,6 +56,8 @@ function init() {
     // var web_table = "Not yet available...";
     // var cp_table = "Not yet available...";
 
+    buildPositionTable(data);
+
     document.getElementById("pres_candidates").innerHTML = presidential_table;
     document.getElementById("hr_candidates").innerHTML = hr_table;
     document.getElementById("corporate_candidates").innerHTML = corporate_table;
@@ -67,6 +71,7 @@ function init() {
 
 
   function buildPositionTable(data) {
+    var index = 0;
     unclassifiedContent = '';
     while (data[index] != null) {
       data.forEach(form => {
