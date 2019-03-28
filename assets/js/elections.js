@@ -72,15 +72,15 @@ function init() {
   function buildPositionTable(data) {
     var index = 0;
     unclassifiedContent = '';
-    while (data[index] != null) {
-      data.forEach(form => {
+    while (data[index] != null) {	//Why nested loop over the data? for each will go through each of the valid submissions already
+      data.forEach(form => { //this is what you're doing to each row
         '<h3>' + data[index][firstNameColumn] + " " + data[index][lastNameColumn] + '</h3>'
         + '<div style="padding-left: 2%; padding-right: 2%" >'
         + '<strong>Qualifications</strong>'
         + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][qualificationsColumn].replace('\n', "<br />") + '</p></div>'
         + '<strong>Platform</strong>'
         + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][platformColumn].replace('\n', "<br />") + '</p></div>';
-      })
+      })	//if you're ending the for each here, what is this chunk of code under this line do? Trash? 
       '<h3>' + data[index][firstNameColumn] + " " + data[index][lastNameColumn] + '</h3>'
       + '<div style="padding-left: 2%; padding-right: 2%" >'
       + '<strong>Qualifications</strong>'
@@ -97,6 +97,8 @@ function init() {
       index++;
     }
 
+    // for each unclassified submission, classify it and appended it to the correct table. So this below code should all be inside 
+    // Also, none of these tables are declared. Declare it outside the foreach scope and put it before the foreach loop
     if (data[index][positionColumn].includes("President")===true) {
       presidential_table += unclassifiedContent;
     }
