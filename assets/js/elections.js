@@ -73,7 +73,9 @@ function init() {
     var index = 0;
     unclassifiedContent = '';
     while (data[index] != null) {	//Why nested loop over the data? for each will go through each of the valid submissions already
-      data.forEach(form => { //this is what you're doing to each row
+      data.forEach(form => { //this is what you're doing to each 
+      	//Also, each "submission" or data[index] is now called form. instead of data[index][lastname], you can do form[lastname]
+      	//You should rename it to not form though
         '<h3>' + data[index][firstNameColumn] + " " + data[index][lastNameColumn] + '</h3>'
         + '<div style="padding-left: 2%; padding-right: 2%" >'
         + '<strong>Qualifications</strong>'
