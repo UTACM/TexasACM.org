@@ -3,6 +3,8 @@
 // Address of the Google Sheets Database
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1ztxne39u4smNKquHZXnDnHuObXEzDYSABe8cEY0J5-c/edit?usp=sharing';
 
+// Constants for column headers on spreadsheet
+// Note: must match EXACTLY what header has! Feel free to use \n
 let firstNameColumn = "First Name";
 let lastNameColumn = "Last Name";
 let positionColumn = "SO Position";
@@ -11,8 +13,8 @@ let platformColumn = "Officer Platform";
 let miscColumn = "Is there anything else you'd like us to know?";
 let orderColumn = "Position Preferences";
 
-// Distinct Offices Content
-var presidentContent = '';
+// Content vars for each respective ACM office
+var presidentialContent = '';
 var hrContent = '';
 var corporateContent = '';
 var internalContent = '';
@@ -22,18 +24,8 @@ var socialContent = '';
 var webContent = '';
 var marketingContent = '';
 
-//
-var presidential_table = '';
-var hr_table = '';
-var corporate_table = '';
-var internal_table = '';
-var academics_table = '';
-var finance_table = '';
-var social_table = '';
-var web_table = '';
-var marketing_table = '';
-
-window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
+// Calls init() when Sheets has loaded
+window.addEventListener('DOMContentLoaded', init)
 var unhiddenPosition = "";
 
 function init() {
@@ -44,96 +36,83 @@ function init() {
 
   // Method that gets called when data has been pulled from Google Sheets
   function showInfo(data) {
-    //Note: If the column name is multiword, that is fine, since
-    // data[0].Name === data[0]["Name"]. So, you can write: data[0]["First Name"]
-    // var presidential_table = "Not yet available...";
-    // var hr_table = "Not yet available...";
-    // var corporate_table = "Not yet available...";
-    // var internal_table = "Not yet available...";
-    // var academics_table = "Not yet available...";
-    // var finance_table = "Not yet available...";
-    // var social_table = "Not yet available...";
-    // var web_table = "Not yet available...";
-    // var cp_table = "Not yet available...";
-
-    buildPositionTable(data);
-
-    document.getElementById("pres_candidates").innerHTML = presidential_table;
-    document.getElementById("hr_candidates").innerHTML = hr_table;
-    document.getElementById("corporate_candidates").innerHTML = corporate_table;
-    document.getElementById("internal_candidates").innerHTML = internal_table;
-    document.getElementById("academics_candidates").innerHTML = academics_table;
-    document.getElementById("finance_candidates").innerHTML = finance_table;
-    document.getElementById("social_candidates").innerHTML = social_table;
-    document.getElementById("web_candidates").innerHTML = web_table;
-    document.getElementById("marketing_candidates").innerHTML = marketing_table;
+    classifyContent(data);
+    // Inject platform submissions' content under respective position header in HTML file
+    document.getElementById("pres_candidates").innerHTML = presidentialContent;
+    document.getElementById("hr_candidates").innerHTML = hrContent;
+    document.getElementById("corporate_candidates").innerHTML = corporateContent;
+    document.getElementById("internal_candidates").innerHTML = internalContent;
+    document.getElementById("academics_candidates").innerHTML = academicsContent;
+    document.getElementById("finance_candidates").innerHTML = financeContent;
+    document.getElementById("social_candidates").innerHTML = socialContent;
+    document.getElementById("web_candidates").innerHTML = webContent;
+    document.getElementById("marketing_candidates").innerHTML = marketingContent;
   }
 
-  function buildPositionTable(data) {
-    var index = 0;
+  // For each line in spreadsheet, format platform in HTML.
+  // Then check for which positions the platform submission is applicable for
+  // and assign it to its respective content var.
+  function classifyContent(data) {
+      data.forEach(platform => { //this is what you're doing to each
+        var unclassifiedContent = buildPositionTable(platform);
+        if (platform[positionColumn].includes("President")===true) {
+          presidentialContent += unclassifiedContent;
+        }
+        if (platform[positionColumn].includes("Human Resources")===true) {
+          hrContent += unclassifiedContent;
+        }
+        if (platform[positionColumn].includes("Corporate")===true) {
+          corporateContent += unclassifiedContent;
+        }
+        if (platform[positionColumn].includes("Internal")===true) {
+          internalContent += unclassifiedContent;
+        }
+        if (platform[positionColumn].includes("Academics")===true) {
+          academicsContent += unclassifiedContent;
+        }
+        if (platform[positionColumn].includes("Finance")===true) {
+          financeContent += unclassifiedContent;
+        }
+        if (platform[positionColumn].includes("Social")===true) {
+          socialContent += unclassifiedContent;
+        }
+        if (platform[positionColumn].includes("Webmaster")===true) {
+          webContent += unclassifiedContent;
+        }
+        if (platform[positionColumn].includes("Marketing")===true) {
+          marketingContent += unclassifiedContent;
+        }
+      })
+  }
+
+  // Formats spreadsheet content from platform submission form with HTML
+  function buildPositionTable(platform) {
     unclassifiedContent = '';
-    while (data[index] != null) {	//Why nested loop over the data? for each will go through each of the valid submissions already
-      data.forEach(form => { //this is what you're doing to each 
-      	//Also, each "submission" or data[index] is now called form. instead of data[index][lastname], you can do form[lastname]
-      	//You should rename it to not form though
-        '<h3>' + data[index][firstNameColumn] + " " + data[index][lastNameColumn] + '</h3>'
-        + '<div style="padding-left: 2%; padding-right: 2%" >'
-        + '<strong>Qualifications</strong>'
-        + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][qualificationsColumn].replace('\n', "<br />") + '</p></div>'
-        + '<strong>Platform</strong>'
-        + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][platformColumn].replace('\n', "<br />") + '</p></div>';
-      })	//if you're ending the for each here, what is this chunk of code under this line do? Trash? 
-      '<h3>' + data[index][firstNameColumn] + " " + data[index][lastNameColumn] + '</h3>'
-      + '<div style="padding-left: 2%; padding-right: 2%" >'
-      + '<strong>Qualifications</strong>'
-      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][qualificationsColumn].replace('\n', "<br />") + '</p></div>'
-      + '<strong>Platform</strong>'
-      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][platformColumn].replace('\n', "<br />") + '</p></div>';
-      if (data[index][miscColumn].length > 0)
+    // Basic submission content (Qualifications and Platform)
+    unclassifiedContent += '<h3>' + platform[firstNameColumn] + " " + platform[lastNameColumn] + '</h3>'
+    + '<div style="padding-left: 2%; padding-right: 2%" >'
+    + '<strong>Qualifications</strong>'
+    + '<div style="padding-left: 2%; padding-right: 2%"><p>' + platform[qualificationsColumn].replace('\n', "<br />") + '</p></div>'
+    + '<strong>Platform</strong>'
+    + '<div style="padding-left: 2%; padding-right: 2%"><p>' + platform[platformColumn].replace('\n', "<br />") + '</p></div>';
+    // If the misc colum contains anything, include it
+    if (platform[miscColumn].length > 0) {
       unclassifiedContent += '<strong>Other things to know</strong>'
-      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][miscColumn].replace('\n', "<br />") + '</p></div>';
-      if (data[index][orderColumn].length > 0)
+      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + platform[miscColumn].replace('\n', "<br />") + '</p></div>';
+    }
+    // If the position preferences colum contains anything, include it
+    if (platform[orderColumn].length > 0) {
       unclassifiedContent += '<strong>Position Preferences</strong>'
-      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + data[index][orderColumn] + '</p></div>';
+      + '<div style="padding-left: 2%; padding-right: 2%"><p>' + platform[orderColumn] + '</p></div>';
       unclassifiedContent += '</div>'
-      index++;
     }
-
-    // for each unclassified submission, classify it and appended it to the correct table. So this below code should all be inside 
-    // Also, none of these tables are declared. Declare it outside the foreach scope and put it before the foreach loop
-    if (data[index][positionColumn].includes("President")===true) {
-      presidential_table += unclassifiedContent;
-    }
-    if (data[index][positionColumn].includes("Human Resources")===true) {
-      hr_table += unclassifiedContent;
-    }
-    if (data[index][positionColumn].includes("Corporate")===true) {
-      corporate_table += unclassifiedContent;
-    }
-    if (data[index][positionColumn].includes("Internal")===true) {
-      internal_table += unclassifiedContent;
-    }
-    if (data[index][positionColumn].includes("Academics")===true) {
-      academics_table += unclassifiedContent;
-    }
-    if (data[index][positionColumn].includes("Finance")===true) {
-      finance_table += unclassifiedContent;
-    }
-    if (data[index][positionColumn].includes("Social")===true) {
-      social_table += unclassifiedContent;
-    }
-    if (data[index][positionColumn].includes("Webmaster")===true) {
-      web_table += unclassifiedContent;
-    }
-    if (data[index][positionColumn].includes("Marketing")===true) {
-      cp_table += unclassifiedContent;
-    }
+    return unclassifiedContent;
   }
 
-  // When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and
+  // When an SO position gets clicked on, this method will hide the currently displaying answer (if any), and
   // Unhide the answer corresponding to the clicked on answer.
-  // If the currently displaying answer is the same as the answer corresponding to the clicked on question,
-  // it will be hidden and no new answer will be unhidden
+  // If the currently displaying section is the same as the answer corresponding to the clicked on section,
+  // it will be hidden and no new section will be unhidden
   function unhidePosition(position) {
     if (position.classList=="hidePosition") {
       position.classList.remove("hidePosition");
