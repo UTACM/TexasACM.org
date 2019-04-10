@@ -105,8 +105,8 @@ function init() {
     if (platform[orderColumn].length > 0) {
       unclassifiedContent += "<strong>Position Preferences</strong>"
       + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[orderColumn] + "</p></div>";
-      unclassifiedContent += "</div>"
     }
+    unclassifiedContent += "</div>";
     return unclassifiedContent;
   }
 
