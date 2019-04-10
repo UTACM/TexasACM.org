@@ -1,135 +1,153 @@
 // Use of this Script Requires the Tabletop.js Library. The Calling HTML File must include tabletop.js
 
 // Address of the Google Sheets Database
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1ztxne39u4smNKquHZXnDnHuObXEzDYSABe8cEY0J5-c/edit?usp=sharing';
+var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ztxne39u4smNKquHZXnDnHuObXEzDYSABe8cEY0J5-c/edit?usp=sharing";
+
+// Constants for column headers on spreadsheet
+// Note: must match EXACTLY what header has! Feel free to use \n
+let firstNameColumn = "First Name";
+let lastNameColumn = "Last Name";
+let positionColumn = "SO Position";
+let qualificationsColumn = "Qualifications";
+let platformColumn = "Officer Platform";
+let miscColumn = "Is there anything else you'd like us to know?";
+let orderColumn = "Position Preferences";
+
+// Content vars for each respective ACM office
+var presidentialContent = "";
+var hrContent = "";
+var corporateContent = "";
+var internalContent = "";
+var academicsContent = "";
+var financeContent = "";
+var socialContent = "";
+var webContent = "";
+var marketingContent = "";
+
+// Calls init() when Sheets has loaded
+window.addEventListener("DOMContentLoaded", init)
 
 function init() {
-Tabletop.init( { key: public_spreadsheet_url,
-                 callback: showInfo,
-                 simpleSheet: true } );
-}
+  Tabletop.init( { key: public_spreadsheet_url,
+    callback: showInfo,
+    simpleSheet: true } );
+  }
 
-window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
-var unhiddenPosition = "";
+  // Method that gets called when data has been pulled from Google Sheets
+  function showInfo(data) {
+    classifyContent(data);
+    checkForEmptyOffices();
+    // Inject platform submissions" content under respective position header in HTML file
+    document.getElementById("pres_candidates").innerHTML = presidentialContent;
+    document.getElementById("hr_candidates").innerHTML = hrContent;
+    document.getElementById("corporate_candidates").innerHTML = corporateContent;
+    document.getElementById("internal_candidates").innerHTML = internalContent;
+    document.getElementById("academics_candidates").innerHTML = academicsContent;
+    document.getElementById("finance_candidates").innerHTML = financeContent;
+    document.getElementById("social_candidates").innerHTML = socialContent;
+    document.getElementById("web_candidates").innerHTML = webContent;
+    document.getElementById("marketing_candidates").innerHTML = marketingContent;
+  }
 
+  // For each line in spreadsheet, format platform in HTML.
+  // Then check for which positions the platform submission is applicable for
+  // and assign it to its respective content var.
+  function classifyContent(data) {
+    data.forEach(platform => {
+      let positions = platform[positionColumn];
+      var unclassifiedContent = buildPositionTable(platform);
+      if (positions.includes("President")===true) {
+        presidentialContent += unclassifiedContent;
+      }
+      if (positions.includes("Human Resources")===true) {
+        hrContent += unclassifiedContent;
+      }
+      if (positions.includes("Corporate")===true) {
+        corporateContent += unclassifiedContent;
+      }
+      if (positions.includes("Internal")===true) {
+        internalContent += unclassifiedContent;
+      }
+      if (positions.includes("Academics")===true) {
+        academicsContent += unclassifiedContent;
+      }
+      if (positions.includes("Finance")===true) {
+        financeContent += unclassifiedContent;
+      }
+      if (positions.includes("Social")===true) {
+        socialContent += unclassifiedContent;
+      }
+      if (positions.includes("Webmaster")===true) {
+        webContent += unclassifiedContent;
+      }
+      if (positions.includes("Marketing")===true) {
+        marketingContent += unclassifiedContent;
+      }
+    })
+  }
 
-// Method that gets called when data has been pulled from Google Sheets
-function showInfo(data) {
-	//Note: If the column name is multiword, that is fine, since
-	// data[0].Name === data[0]["Name"]. So, you can write: data[0]["First Name"]
-	// var presidential_table = "Not yet available...";
-	// var hr_table = "Not yet available...";
-	// var corporate_table = "Not yet available...";
-	// var internal_table = "Not yet available...";
-	// var academics_table = "Not yet available...";
-	// var finance_table = "Not yet available...";
-	// var social_table = "Not yet available...";
-	// var web_table = "Not yet available...";
-	// var cp_table = "Not yet available...";
+  // Formats spreadsheet content from platform submission form with HTML
+  function buildPositionTable(platform) {
+    unclassifiedContent = "";
+    // Basic submission content (Qualifications and Platform)
+    unclassifiedContent += "<h3>" + platform[firstNameColumn] + " " + platform[lastNameColumn] + "</h3>"
+    + "<div style='padding-left: 2%; padding-right: 2%' >"
+    + "<strong>Qualifications</strong>"
+    + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[qualificationsColumn].replace("\n", "<br />") + "</p></div>"
+    + "<strong>Platform</strong>"
+    + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[platformColumn].replace("\n", "<br />") + "</p></div>";
+    // If the misc colum contains anything, include it
+    if (platform[miscColumn].length > 0) {
+      unclassifiedContent += "<strong>Other things to know</strong>"
+      + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[miscColumn].replace("\n", "<br />") + "</p></div>";
+    }
+    // If the position preferences colum contains anything, include it
+    if (platform[orderColumn].length > 0) {
+      unclassifiedContent += "<strong>Position Preferences</strong>"
+      + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[orderColumn] + "</p></div>";
+    }
+    unclassifiedContent += "</div>";
+    return unclassifiedContent;
+  }
 
-	var presidential_table = "";
-	var hr_table = "";
-	var corporate_table = "";
-	var internal_table = "";
-	var academics_table = "";
-	var finance_table = "";
-	var social_table = "";
-	var web_table = "";
-	var cp_table = "";
-	var index = 0;
-	var testing = "";
+  function checkForEmptyOffices() {
+    if (presidentialContent.length === 0) {
+      presidentialContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+    if (hrContent.length === 0) {
+      hrContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+    if (corporateContent.length === 0) {
+      corporateContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+    if (internalContent.length === 0) {
+      internalContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+    if (academicsContent.length === 0) {
+      academicsContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+    if (financeContent.length === 0) {
+      financeContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+    if (socialContent.length === 0) {
+      socialContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+    if (webContent.length === 0) {
+      webContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+    if (marketingContent.length === 0) {
+      marketingContent += "<p><b>There are no candidates for this office at this time.</b></p>";
+    }
+  }
 
-
-	// alert("A");
-	// alert(data[0]["SO Position"].includes("President")===true);
-	while (data[index] != null) {
-		var firstName = data[index]['First Name'];
-		var lastName = data[index]["Last Name"];
-		var officerPos = data[index]["SO Position"];
-		var qualifications = data[index]["Qualifications"];
-		var platform = data[index]["Officer Platform"];
-		var misc = data[index]["Is there anything else you'd like us to know?"];
-		var order = data[index]["Position Preferences"];
-
-		var internalContent = '<h3>' + firstName + " " + lastName + '</h3>'
-			+ '<div style="padding-left: 2%; padding-right: 2%" >'
-			+ '<strong>Qualifications</strong>'
-			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + qualifications.replace('\n', "<br />") + '</p></div>'
-			+ '<strong>Platform</strong>'
-			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + platform.replace('\n', "<br />") + '</p></div>';
-		if (misc.length > 0)
-			internalContent += '<strong>Other things to know</strong>'
-			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + misc.replace('\n', "<br />") + '</p></div>';
-		if (order.length > 0)
-			internalContent += '<strong>Position Preferences</strong>'
-			+ '<div style="padding-left: 2%; padding-right: 2%"><p>' + order + '</p></div>';
-		internalContent += '</div>';
-
-		if (data[index]["SO Position"].includes("President")===true) {
-			presidential_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Human Resources")===true) {
-			hr_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Corporate")===true) {
-			corporate_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Internal")===true) {
-			internal_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Academics")===true) {
-			academics_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Finance")===true) {
-			finance_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Social")===true) {
-			social_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Webmaster")===true) {
-			web_table += internalContent;
-		}
-		if (data[index]["SO Position"].includes("Competitive Programming")===true) {
-			cp_table += internalContent;
-		}
-
-
-		// Writes HTML code based on Form responses
-		// alert(webURL[index] == undefined);
-		// link = "";
-		// link = webURL[index];
-
-		// testing += '<h3>' + firstName + " " + lastName + '</h3>'
-		// + '<p>' + platform + '</p>'
-		// + '<p>' + misc + '</p>'
-		// + '<p>' + qualifications + '</p>';
-
-
-		index++;
-	}
-
-	// document.getElementById("testing").innerHTML = testing;
-	document.getElementById("pres_candidates").innerHTML = presidential_table;
-	document.getElementById("hr_candidates").innerHTML = hr_table;
-	document.getElementById("corporate_candidates").innerHTML = corporate_table;
-	document.getElementById("internal_candidates").innerHTML = internal_table;
-	document.getElementById("academics_candidates").innerHTML = academics_table;
-	document.getElementById("finance_candidates").innerHTML = finance_table;
-	document.getElementById("social_candidates").innerHTML = social_table;
-	document.getElementById("web_candidates").innerHTML = web_table;
-	document.getElementById("cp_candidates").innerHTML = cp_table;
-}
-
-// When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and
-// Unhide the answer corresponding to the clicked on answer.
-// If the currently displaying answer is the same as the answer corresponding to the clicked on question,
-// it will be hidden and no new answer will be unhidden
-function unhidePosition(position) {
-	if (position.classList=="hidePosition") {
-		position.classList.remove("hidePosition");
-	}
-	else {
-		position.classList.add("hidePosition");
-
-	}
-}
+  // When an SO position gets clicked on, this method will hide the currently displaying answer (if any), and
+  // Unhide the answer corresponding to the clicked on answer.
+  // If the currently displaying section is the same as the answer corresponding to the clicked on section,
+  // it will be hidden and no new section will be unhidden
+  function unhidePosition(position) {
+    if (position.classList=="hidePosition") {
+      position.classList.remove("hidePosition");
+    } else {
+      position.classList.add("hidePosition");
+    }
+  }
