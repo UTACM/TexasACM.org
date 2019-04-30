@@ -75,11 +75,11 @@ function getStaticJSON() {
     },
     {
       [questionsColumn]: "What sort of events does ACM organize?",
-      [answersColumn]: "ACM organizes a variety of <a href=\"http://texasacm.org/membership.html#events\" target=\"_blank\">events</a>. In addition to running most of UT's programming competitions, we organize tutoring and lecture series with professors, professional networking events where companies come to speak, and social events as well."
+      [answersColumn]: "ACM organizes a variety of <a href=\"http://texasacm.org/about.html#what-we-do\" target=\"_blank\">events</a>. In addition to running most of UT's programming competitions, we organize tutoring and lecture series with professors, professional networking events where companies come to speak, and social events as well."
     },
     {
       [questionsColumn]: "How can I get more involved with ACM?",
-      [answersColumn]: "You are always welcome to hang out in our office, and come to our many events. To know when these events are, check out our <a href=\"http://texasacm.org/events.html\">Calendar</a> and <a href=\"https://www.facebook.com/groups/texas.acm/\">Facebook Group</a>."
+      [answersColumn]: "You are always welcome to hang out in our office, and come to our many events. To know when these events are, check out our <a href=\"http://texasacm.org/calendar.html\">Calendar</a> and <a href=\"https://www.facebook.com/groups/texas.acm/\">Facebook Group</a>."
     },
     {
       [questionsColumn]: "How do I become an officer?",
