@@ -5,6 +5,7 @@ var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1wwobshcqPM
 
 // Column Names from Google Sheets Database
 let nameColumn = "Name\n(Must be 1 word)";
+let embedColumn = "Embed in ACM\n(Default value [blank] yes)";
 let addressColumn = "Address\n(include http:// if external link)";
 
 window.addEventListener("DOMContentLoaded", init)	// Calls method init when Sheets has loaded
@@ -14,6 +15,49 @@ function init() {
   //                callback: showInfo,
   //                simpleSheet: true } );
 	showInfo(getStaticJSON());
+}
+
+// Static JSON handmade from Google Sheets
+function getStaticJSON() {
+	var data = [
+		{
+			[nameColumn]: "Complaints",
+			[embedColumn]: "",
+			[addressColumn]: "https://goo.gl/forms/07t1rhkUpK77FZIP2"
+		},
+		{
+			[nameColumn]: "Join",
+			[embedColumn]: "",
+			[addressColumn]: "https://docs.google.com/forms/d/e/1FAIpQLSdgl_Y7VuPky6aZQYwOUT9wxkK8jqyVOJg-1IjtzEmDvwkG4A/viewform"
+		},
+		{
+			[nameColumn]: "Lockers",
+			[embedColumn]: "",
+			[addressColumn]: "https://goo.gl/forms/5ngqB7zAbpQ1J0j82"
+		},
+		{
+			[nameColumn]: "PC",
+			[embedColumn]: "No",
+			[addressColumn]: "https://docs.google.com/forms/d/1bYpQkwchxqzNPtqHAAOkT0CuN9H5bpQmUKscGRsR5hk/viewform"
+		},
+		{
+			[nameColumn]: "SignIn",
+			[embedColumn]: "No",
+			[addressColumn]: "https://goo.gl/forms/nEYLjA34n5tiB7GG3"
+		},
+		{
+			[nameColumn]: "Wishlist",
+			[embedColumn]: "No",
+			[addressColumn]: "https://docs.google.com/forms/d/e/1FAIpQLSdmLnUuBDVyFzzkLEbYGWpR0L1pqAJyK9kfRn-RCZUgTtHMtg/viewform"
+		},
+		{
+			[nameColumn]: "Tubing",
+			[embedColumn]: "",
+			[addressColumn]: "https://docs.google.com/forms/d/e/1FAIpQLSc72bY8m0e_5Fp18uZlIaLjv-xfuQHXBf9yJvM4f4A9mWS5rg/viewform"
+		}
+	];
+	// console.log(data)
+	return data;
 }
 
 // Method that gets called when data has been pulled from Google Sheets
@@ -86,38 +130,4 @@ function showForm(form) {
 	else {
 		window.location.replace(form[addressColumn]);
 	}
-}
-
-function getStaticJSON() {
-	var data = [
-		{
-			[nameColumn]: "Complaints",
-			[addressColumn]: "https://goo.gl/forms/07t1rhkUpK77FZIP2"
-		},
-		{
-			[nameColumn]: "Join",
-			[addressColumn]: "https://docs.google.com/forms/d/e/1FAIpQLSdgl_Y7VuPky6aZQYwOUT9wxkK8jqyVOJg-1IjtzEmDvwkG4A/viewform"
-		},
-		{
-			[nameColumn]: "Lockers",
-			[addressColumn]: "https://goo.gl/forms/5ngqB7zAbpQ1J0j82"
-		},
-		{
-			[nameColumn]: "PC",
-			[addressColumn]: "https://docs.google.com/forms/d/1bYpQkwchxqzNPtqHAAOkT0CuN9H5bpQmUKscGRsR5hk/viewform"
-		},
-		{
-			[nameColumn]: "SignIn",
-			[addressColumn]: "https://goo.gl/forms/nEYLjA34n5tiB7GG3"
-		},
-		{
-			[nameColumn]: "Wishlist",
-			[addressColumn]: "https://docs.google.com/forms/d/e/1FAIpQLSdmLnUuBDVyFzzkLEbYGWpR0L1pqAJyK9kfRn-RCZUgTtHMtg/viewform"
-		},
-		{
-			[nameColumn]: "Tubing",
-			[addressColumn]: "https://docs.google.com/forms/d/e/1FAIpQLSc72bY8m0e_5Fp18uZlIaLjv-xfuQHXBf9yJvM4f4A9mWS5rg/viewform"
-		}
-	];
-	return data;
 }
