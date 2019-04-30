@@ -21,42 +21,41 @@ function init() {
 function getStaticJSON() {
 	var data = [
 		{
-			"Name\n(Must be 1 word)": "Resume",
-			"Visibility\n(Visible if Blank)": "",
-			"Address\n(include http:// if external link)": "https://apps.cs.utexas.edu/resume/login.scgi"
+			[nameColumn]: "Resume",
+			[visibilityColumn]: "",
+			[addressColumn]: "https://apps.cs.utexas.edu/resume/login.scgi"
 		},
 		{
-			"Name\n(Must be 1 word)": "Requirements",
-			"Visibility\n(Visible if Blank)": "",
-			"Address\n(include http:// if external link)": "https://docs.google.com/document/d/1UbS-NDvMw3lf7ULyUyYdi1esXkD4t1sX89zonE8Hc9Y"
+			[nameColumn]: "Requirements",
+			[visibilityColumn]: "",
+			[addressColumn]: "https://docs.google.com/document/d/1UbS-NDvMw3lf7ULyUyYdi1esXkD4t1sX89zonE8Hc9Y"
 		},
 		{
-			"Name\n(Must be 1 word)": "CrackingTheCode",
-			"Visibility\n(Visible if Blank)": "",
-			"Address\n(include http:// if external link)": "https://drive.google.com/file/d/1EwgfD07DunT6Ob9W-51E68KnmnL9caAW/view"
+			[nameColumn]: "CrackingTheCode",
+			[visibilityColumn]: "",
+			[addressColumn]: "https://drive.google.com/file/d/1EwgfD07DunT6Ob9W-51E68KnmnL9caAW/view"
 		},
 		{
-			"Name\n(Must be 1 word)": "CS101",
-			"Visibility\n(Visible if Blank)": "",
-			"Address\n(include http:// if external link)": "https://forms.gle/VXabX4oAh6xmuGHE7?fbclid=IwAR1ZfFt78ANfxSTAg-LoRuncaoxxIceG-mTsYczwO-jRK-YY_b9rLSYDk_s"
+			[nameColumn]: "CS101",
+			[visibilityColumn]: "",
+			[addressColumn]: "https://forms.gle/VXabX4oAh6xmuGHE7?fbclid=IwAR1ZfFt78ANfxSTAg-LoRuncaoxxIceG-mTsYczwO-jRK-YY_b9rLSYDk_s"
 		},
 		{
-			"Name\n(Must be 1 word)": "Discord",
-			"Visibility\n(Visible if Blank)": "",
-			"Address\n(include http:// if external link)": "https://discord.gg/dSytnYX "
+			[nameColumn]: "Discord",
+			[visibilityColumn]: "",
+			[addressColumn]: "https://discord.gg/dSytnYX "
 		},
 		{
-			"Name\n(Must be 1 word)": "Survey",
-			"Visibility\n(Visible if Blank)": "",
-			"Address\n(include http:// if external link)": "https://forms.gle/g2AqPW15DRoYARic8"
+			[nameColumn]: "Survey",
+			[visibilityColumn]: "",
+			[addressColumn]: "https://forms.gle/g2AqPW15DRoYARic8"
 		},
 		{
-			"Name\n(Must be 1 word)": "SocialSurvey",
-			"Visibility\n(Visible if Blank)": "",
-			"Address\n(include http:// if external link)": "https://docs.google.com/forms/d/e/1FAIpQLSfHLtzoW8wal6cRo6zI3zi5NRzCSwo0etjcesNeQp-QAlhZuw/viewform"
+			[nameColumn]: "SocialSurvey",
+			[visibilityColumn]: "",
+			[addressColumn]: "https://docs.google.com/forms/d/e/1FAIpQLSfHLtzoW8wal6cRo6zI3zi5NRzCSwo0etjcesNeQp-QAlhZuw/viewform"
 		}
 	];
-	// console.log(data)
 	return data
 }
 
