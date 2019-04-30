@@ -14,7 +14,7 @@ function init() {
 	// Tabletop.init( { key: public_spreadsheet_url,
   //                callback: showInfo,
   //                simpleSheet: true } );
-								 showInfo(getStaticJSON())
+	showInfo(getStaticJSON());
 }
 
 // Static JSON handmade from Google Sheets
@@ -57,7 +57,7 @@ function getStaticJSON() {
 		}
 	];
 	// console.log(data)
-	return data
+	return data;
 }
 
 // Method that gets called when data has been pulled from Google Sheets
