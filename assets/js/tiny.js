@@ -11,52 +11,9 @@ let addressColumn = "Address\n(include http:// if external link)";
 window.addEventListener("DOMContentLoaded", init)	// Calls method init when Sheets has loaded
 
 function init() {
-// Tabletop.init( { key: public_spreadsheet_url,
-//                  callback: showInfo,
-//                  simpleSheet: true } );
-	showInfo(getStaticJSON())
-}
-
-// Static JSON handmade from Google Sheets
-function getStaticJSON() {
-	var data = [
-		{
-			[nameColumn]: "Resume",
-			[visibilityColumn]: "",
-			[addressColumn]: "https://apps.cs.utexas.edu/resume/login.scgi"
-		},
-		{
-			[nameColumn]: "Requirements",
-			[visibilityColumn]: "",
-			[addressColumn]: "https://docs.google.com/document/d/1UbS-NDvMw3lf7ULyUyYdi1esXkD4t1sX89zonE8Hc9Y"
-		},
-		{
-			[nameColumn]: "CrackingTheCode",
-			[visibilityColumn]: "",
-			[addressColumn]: "https://drive.google.com/file/d/1EwgfD07DunT6Ob9W-51E68KnmnL9caAW/view"
-		},
-		{
-			[nameColumn]: "CS101",
-			[visibilityColumn]: "",
-			[addressColumn]: "https://forms.gle/VXabX4oAh6xmuGHE7?fbclid=IwAR1ZfFt78ANfxSTAg-LoRuncaoxxIceG-mTsYczwO-jRK-YY_b9rLSYDk_s"
-		},
-		{
-			[nameColumn]: "Discord",
-			[visibilityColumn]: "",
-			[addressColumn]: "https://discord.gg/dSytnYX "
-		},
-		{
-			[nameColumn]: "Survey",
-			[visibilityColumn]: "",
-			[addressColumn]: "https://forms.gle/g2AqPW15DRoYARic8"
-		},
-		{
-			[nameColumn]: "SocialSurvey",
-			[visibilityColumn]: "",
-			[addressColumn]: "https://docs.google.com/forms/d/e/1FAIpQLSfHLtzoW8wal6cRo6zI3zi5NRzCSwo0etjcesNeQp-QAlhZuw/viewform"
-		}
-	];
-	return data
+Tabletop.init( { key: public_spreadsheet_url,
+                 callback: showInfo,
+                 simpleSheet: true } );
 }
 
 // Method that gets called when data has been pulled from Google Sheets
