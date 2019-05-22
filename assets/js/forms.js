@@ -5,6 +5,7 @@ var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1wwobshcqPM
 
 // Column Names from Google Sheets Database
 let nameColumn = "Name\n(Must be 1 word)";
+let embedColumn = "Embed in ACM\n(Default value [blank] yes)";
 let addressColumn = "Address\n(include http:// if external link)";
 
 window.addEventListener("DOMContentLoaded", init)	// Calls method init when Sheets has loaded
