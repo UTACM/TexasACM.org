@@ -3,13 +3,19 @@
 // Address of the Google Sheets Database
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1vk0d2y8ytko-35esBDPjokwenkpeoHyuOA-Ra2piFxI/edit#gid=0';
 
+// Column Names from Google Sheets Database
+let IMG_COL = "IMG_URL";
+let YEAR_COL = "YEAR";
+let TITLE_COL = "TITLE";
+let CONTENT_COL = "CONTENT";
+
+window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
+
 function init() {
 Tabletop.init( { key: public_spreadsheet_url,
                  callback: showInfo,
                  simpleSheet: true } );
 }
-
-window.addEventListener('DOMContentLoaded', init)	// Calls method init when Sheets has loaded
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
@@ -18,7 +24,7 @@ function showInfo(data) {
   var content = [];
 	// line 2 is index 0
 	var index = 0;
-	var html = '<h2>Etiam sed tellus</h2><div class="posts">';
+	var html = '<div class="posts">';
 	//Builds the Forms and Addresses arrays using the Google Sheets Data
 	//  var[index] = data[index]<COL_NAME>
 	while (data[index] != null) {
