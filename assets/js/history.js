@@ -19,23 +19,16 @@ Tabletop.init( { key: public_spreadsheet_url,
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
-	var imgURL = [];
-	var title = [];
-  var content = [];
-	// line 2 is index 0
 	var index = 0;
 	var html = '<div class="posts">';
-	//Builds the Forms and Addresses arrays using the Google Sheets Data
-	//  var[index] = data[index]<COL_NAME>
-	while (data[index] != null) {
-		imgURL[index] = data[index].IMG_URL;
-    title[index] = data[index].TITLE;
-    content[index] = data[index].CONTENT;
-		html += '<section class="post"><span class="image"><img src="' + imgURL[index] + '" alt=""></span>' +
-    '<div class="content"><h3>' + title[index] + '</h3>' +
-    '<p>' + content[index] + '</p><ul class="actions"></ul></div></section>';
-		index++;
 
-	}
+  // Builds the HTML code from the Spreadsheet Data
+  data.forEach(form =>  {
+    html += '<section class="post"><span class="image"><img src="' + data[index][IMG_COL] + '" alt=""></span>' +
+      '<div class="content"><h2 style="style: border-bottom: none; padding-bottom: 0em;">' + data[index][YEAR_COL] + '</h2>' +
+      '<div class=""><h3>' + data[index][TITLE_COL] + '</h3>' +
+      '<p>' + data[index][CONTENT_COL] + '</p><ul class="actions"></ul></div></section>';
+  		index++;
+  });
 	document.getElementById("historyContainer").innerHTML = html;
 }
