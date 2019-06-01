@@ -27,7 +27,7 @@ function showInfo(data) {
     html += '<section class="post"><span class="image"><img src="' + data[index][IMG_COL] + '" alt=""></span>' +
       '<div class="content"><h2 style="style: border-bottom: none; padding-bottom: 0em;">' + data[index][YEAR_COL] + '</h2>' +
       '<div class=""><h3>' + data[index][TITLE_COL] + '</h3>' +
-      '<p>' + data[index][CONTENT_COL] + '</p><ul class="actions"></ul></div></section>';
+      '<p style="height: 40vh; overflow: auto;">' + data[index][CONTENT_COL] + '</p><ul class="actions"></ul></div></section>';
   		index++;
   });
 	document.getElementById("historyContainer").innerHTML = html;
