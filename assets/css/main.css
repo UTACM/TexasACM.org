@@ -50,6 +50,10 @@
 		-webkit-text-size-adjust: none;
 	}
 
+    .resource {
+        margin-top: 5em;
+    }
+
 /* Box Model */
 
 	*, *:before, *:after {
@@ -218,7 +222,7 @@
 	}
 
 /* Grid */
-
+    
 	.row {
 		border-bottom: solid 1px transparent;
 		-moz-box-sizing: border-box;
