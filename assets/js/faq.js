@@ -34,6 +34,8 @@ function buildFAQTable(data) {
 		content += '<p id="answer' + index + '" class="hideAnswer">' + data[index][answersColumn] + '</p>';
 		index++;
 	});
+  // Extends body to accomdate for tall footer on very small devices (e.g. iPhone 5/5S/SE)
+  content += "<br></br><br></br>";
 	return content;
 }
 

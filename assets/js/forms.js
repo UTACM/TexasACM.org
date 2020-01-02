@@ -65,6 +65,8 @@ function buildAllForms(data) {
 	content += "<a href='" + public_spreadsheet_url + "'><button class='button admin'>Edit Forms List</button></a>";
 
 	content += "</div>";
+	// Extends body to accomdate for tall footer on very small devices (e.g. iPhone 5/5S/SE)
+	content += "<br></br><br></br>";
 	return content;
 }
 
