@@ -222,7 +222,7 @@
 	}
 
 /* Grid */
-    
+
 	.row {
 		border-bottom: solid 1px transparent;
 		-moz-box-sizing: border-box;
@@ -3796,6 +3796,14 @@
 
 	body #footer {
 		padding-top: 0em;
+	}
+
+	body #footer-special {
+		padding-top: 0em;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+
 	}
 
 	div:not([name="!body"]){
