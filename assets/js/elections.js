@@ -1,7 +1,7 @@
 // Use of this Script Requires the Tabletop.js Library. The Calling HTML File must include tabletop.js
 
 // Address of the Google Sheets Database
-var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ztxne39u4smNKquHZXnDnHuObXEzDYSABe8cEY0J5-c/edit?usp=sharing";
+var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1EkMViGdMY7FY_yp6b5V0pjmIPAur514zA9MumU5tzdk/edit?usp=sharing";
 
 // Constants for column headers on spreadsheet
 // Note: must match EXACTLY what header has! Feel free to use \n
