@@ -4193,7 +4193,7 @@
 		background-color: #444;
 		color: #fff;
 		min-height: 40em;
-		height: 75vh;
+		height: 95vh;
 		position: relative;
 	}
 
@@ -4324,7 +4324,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		background: #000;
+		/*background: #000;*/
 		/* opacity of slideshow images */
 		opacity: 0.1;
 	}
@@ -4803,4 +4803,11 @@
 	#mailchimpList {
 		max-width: 40vw;
 		margin: auto;
+	}
+
+	td.full img {
+		margin-bottom: 3em;
+		margin-top: 3em;
+		margin-left: 3em;
+		margin-right: 3em;
 	}
