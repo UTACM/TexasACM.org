@@ -4832,9 +4832,10 @@
 	}
 
 	.aboutBlock {
-		background-image: url( "../../background.png");
-		background-size: 170%;
+		background-image: url( "../../background2.png");
+		background-size: 140%;
 		background-position: center;
+		background-repeat: repeat-y;
 	}
 
 	.aboutText {
