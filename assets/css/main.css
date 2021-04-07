@@ -4193,7 +4193,7 @@
 		background-color: #444;
 		color: #fff;
 		min-height: 40em;
-		height: 75vh;
+		height: 95vh;
 		position: relative;
 	}
 
@@ -4324,7 +4324,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		background: #000;
+		/*background: #000;*/
 		/* opacity of slideshow images */
 		opacity: 0.1;
 	}
@@ -4804,3 +4804,51 @@
 		max-width: 40vw;
 		margin: auto;
 	}
+
+	td.full img {
+		margin-bottom: 2em;
+		margin-top: 2em;
+		margin-left: 2em;
+		margin-right: 2em;
+	}
+
+	.mailImg {
+		margin-top: 3em;
+	}
+
+	.calanderImg{
+		text-align: center;
+		align-content: center;
+		margin-bottom: 2em;
+		margin-left: 2em;
+		margin-right: 2em;
+		
+	}
+
+	.calanderImg img{
+		margin-bottom: 4em;
+		margin-top: 1em;
+		
+	}
+
+	.aboutBlock {
+		background-image: url( "../../background2.png");
+		background-size: 140%;
+		background-position: center;
+		background-repeat: repeat-y;
+	}
+
+	.aboutText {
+		width: 85em;
+		max-width: calc(100%-4em);
+		margin: 0 auto;
+		background-color: rgba(255,255,255,0.90);
+		margin-top: 3em !important;
+		padding-top: 2.5em !important;
+		padding-left: 2.5em !important;
+		padding-right: 2.5em !important;
+		padding-top: 2.5em !important;
+		padding-bottom: 1.5em !important;
+		/* text-align: center; */
+	}
+
