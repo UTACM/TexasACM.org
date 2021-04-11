@@ -4463,7 +4463,7 @@
 
 	#footer {
 		padding: 0 0 0 0;
-		border-top: solid 1px #e6e6e6;
+		/* border-top: solid 1px #ffffff; */
 		position: relative;
 		color: #c15b05;
 		text-align: center;
