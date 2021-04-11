@@ -15,7 +15,7 @@
 		border: 0;
 		font-size: 100%;
 		font: inherit;
-		vertical-align: bottom;
+		vertical-align: top;
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -1635,6 +1635,10 @@
 
 	p {
 		margin: 0 0 2em 0;
+	}
+
+	p.index {
+		margin: 0 0 2.75em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
