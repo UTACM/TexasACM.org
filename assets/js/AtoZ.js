@@ -17,26 +17,47 @@ Tabletop.init( { key: public_spreadsheet_url,
 
 var unhiddenAnswer = "";
 
-// Method that gets called when data has been pulled from Google Sheets
-function showInfo(data) {
-	var editButton = '<center><a style="border-bottom: none" href="' + public_spreadsheet_url + '"><button class="button admin">Edit</button></a></center>';
-
-	// Injects the built HTML code into the div Dynamic
-	document.getElementById("dynamic").innerHTML = buildFAQTable(data) + editButton;
+function toggleAnswer(num) {
+	const answer = document.getElementById(`answer${num}`);
+	answer.classList.toggle('hideAnswer');
 }
+
+function hideAll(data) {
+	for (i in data) {
+		answer = document.getElementById(`answer${i}`);
+		answer.classList.toggle('hideAnswer');
+	}
+}
+
+function showAll(data) {
+	for (i in data) {
+		answer = document.getElementById(`answer${i}`);
+		answer.classList.remove('hideAnswer');
+	}
+}
+
 
 // Builds the HTML Table code from the Database Data
 function buildFAQTable(data) {
-	var index = 0;
-	var content = '<h2>Computer Science A to Z\'s</h2><div style="padding:0px 5%">';
-	data.forEach(form => {
-		content += '<h1 class="faq_question" onClick="unhideAnswer(' + index + ')">' + data[index][questionsColumn] + '</h1>';
-		content += '<p id="answer' + index + '" class="hideAnswer">' + data[index][answersColumn] + '</p>';
-		index++;
-	});
-  // Extends body to accomdate for tall footer on very small devices (e.g. iPhone 5/5S/SE)
-  content += "<br></br><br></br>";
+	let index = 0;
+	let content = '<h2>UTCS A to Z\'s</h2><div style="padding:0 5%">';
+
+	for (i in data) {
+			content += `<h1 class="faq_question" onClick="unhideAnswer(${i})">${data[i][questionsColumn]}</h1>`;
+			content += `<p id="answer${i}" class="hideAnswer answer">${data[i][answersColumn]}</p>`;
+	}
+	content += "<br></br><br></br>";
 	return content;
+}
+
+// Method that gets called when data has been pulled from Google Sheets
+function showInfo(data) {
+	// const editButton = `<center><a style="border-bottom: none" href="${public_spreadsheet_url}"><button class="button admin">Edit</button></a></center>`;
+	// const expandAllButton = `<center><a style="border-bottom: none"><button id="expand">Expand All</button></a></center>`;
+	const hideAllButton = `<center><a style="border-bottom: none"><button id="hide">Expand or Hide All</button></a></center>`;
+	document.getElementById("dynamic").innerHTML = hideAllButton + buildFAQTable(data);
+	// document.getElementById("expand").onclick = function() {showAll(data)};
+	document.getElementById("hide").onclick = function() {hideAll(data)};
 }
 
 // When a FAQ Question gets clicked on, this method will hide the currently displaying answer (if any), and
@@ -55,3 +76,11 @@ function unhideAnswer(number) {
 	else
 		unhiddenAnswer = answerID;
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    Tabletop.init({
+        key: public_spreadsheet_url,
+        callback: showInfo,
+        simpleSheet: true
+    });
+}, { once: true })
