@@ -28,6 +28,7 @@ var header = ""
 +  '					<li><a href="resources.html#lockers">Lockers</a></li>'
 +  '					<li><a href="resources.html#hr-contact">HR Contact</a></li>'
 +  '					<li><a href="faq.html">ACM FAQ</a></li>'
++  '					<li><a href="elections.html">2021/2022 Election</a></li>'
 +  '				</ul>'
 +  '			</li>'
 +  '            <li><a href="AtoZ.html" id="AtoZ">AtoZ\'s</a></li>'

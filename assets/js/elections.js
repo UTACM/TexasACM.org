@@ -1,16 +1,16 @@
 // Use of this Script Requires the Tabletop.js Library. The Calling HTML File must include tabletop.js
 
 // Address of the Google Sheets Database
-var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1EkMViGdMY7FY_yp6b5V0pjmIPAur514zA9MumU5tzdk/edit?usp=sharing";
+var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1xYtE57OKEITliV1J4gb6fntoWWCx-a7D4mIoURuf9yU/edit?usp=sharing";
 
 // Constants for column headers on spreadsheet
 // Note: must match EXACTLY what header has! Feel free to use \n
 let firstNameColumn = "First Name";
 let lastNameColumn = "Last Name";
 let positionColumn = "SO Position";
-let qualificationsColumn = "Qualifications";
+// let qualificationsColumn = "Qualifications";
 let platformColumn = "Officer Platform";
-let miscColumn = "Is there anything else you'd like us to know?";
+// let miscColumn = "Is there anything else you'd like us to know?";
 let orderColumn = "Position Preferences";
 
 // Content vars for each respective ACM office
@@ -92,16 +92,16 @@ function init() {
     // Basic submission content (Qualifications and Platform)
     unclassifiedContent += "<h3>" + platform[firstNameColumn] + " " + platform[lastNameColumn] + "</h3>"
     + "<div style='padding-left: 2%; padding-right: 2%' >"
-    + "<strong>Qualifications</strong>"
-    + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[qualificationsColumn].replace("\n", "<br />") + "</p></div>"
+    // + "<strong>Qualifications</strong>"
+    // + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[qualificationsColumn].replace("\n", "<br />") + "</p></div>"
     + "<strong>Platform</strong>"
     + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[platformColumn].replace("\n", "<br />") + "</p></div>";
     // If the misc colum contains anything, include it
-    if (platform[miscColumn].length > 0) {
-      unclassifiedContent += "<strong>Other things to know</strong>"
-      + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[miscColumn].replace("\n", "<br />") + "</p></div>";
-    }
-    // If the position preferences colum contains anything, include it
+    // if (platform[miscColumn].length > 0) {
+    //   unclassifiedContent += "<strong>Other things to know</strong>"
+    //   + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[miscColumn].replace("\n", "<br />") + "</p></div>";
+    // }
+    // // If the position preferences colum contains anything, include it
     if (platform[orderColumn].length > 0) {
       unclassifiedContent += "<strong>Position Preferences</strong>"
       + "<div style='padding-left: 2%; padding-right: 2%'><p>" + platform[orderColumn] + "</p></div>";
