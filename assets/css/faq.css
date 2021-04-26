@@ -17,3 +17,9 @@ img {
 	margin-right: auto!important;
 	width: auto!important;
 }
+
+h3 {
+	text-align: center!important;
+	border-bottom: none!important;
+	font-size: larger;
+}

@@ -40,7 +40,7 @@ function showAll(data) {
 // Builds the HTML Table code from the Database Data
 function buildFAQTable(data) {
 	let index = 0;
-	let content = '<h2>UTCS A to Z\'s</h2><div style="padding:0 5%">';
+	let content = '</br></br></br>';
 
 	for (i in data) {
 			content += `<h1 class="faq_question" onClick="unhideAnswer(${i})">${data[i][questionsColumn]}</h1>`;
@@ -52,8 +52,6 @@ function buildFAQTable(data) {
 
 // Method that gets called when data has been pulled from Google Sheets
 function showInfo(data) {
-	// const editButton = `<center><a style="border-bottom: none" href="${public_spreadsheet_url}"><button class="button admin">Edit</button></a></center>`;
-	// const expandAllButton = `<center><a style="border-bottom: none"><button id="expand">Expand All</button></a></center>`;
 	const hideAllButton = `<center><a style="border-bottom: none"><button id="hide">Expand or Hide All</button></a></center>`;
 	document.getElementById("dynamic").innerHTML = hideAllButton + buildFAQTable(data);
 	// document.getElementById("expand").onclick = function() {showAll(data)};
