@@ -1,7 +1,7 @@
 // Use of this Script Requires the Tabletop.js Library. The Calling HTML File must include tabletop.js
 
 // Address of the Google Sheets Database
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSmEH8Za1E34V0-76XYz-937sydfZCZRuQN3K3IcE6Xdvt4lHJFXJHewyMCeXpuGurQWgzLv9s2EACA/pubhtml';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1jgLTJmkgsOTjphmzllaBrQKFbWTRiWHbPKTUkSgqDZI/edit?usp=sharing';
 
 // Column Names from Google Sheets Database
 let questionsColumn = "Question";
