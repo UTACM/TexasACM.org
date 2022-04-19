@@ -1,11 +1,19 @@
 #forms-table-div {
-	width:30%;
+	width:50%;
 	margin:auto;
 	text-align:center;
 }
 
 #forms-table {
-	text-align:left;
+	text-align:center;
+}
+#forms-icon-cell {
+	padding-bottom: 0;
+	padding-top: 7.5%;
+}
+
+#forms-label-cell {
+	padding-top: 0;
 }
 
 #forms-h1 {
