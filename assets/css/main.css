@@ -1658,7 +1658,7 @@
 		display: inline-block;
 		left: 0;
 		position: absolute;
-		width: 4vw;
+		width: 100%;
 	}
 
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -4826,13 +4826,13 @@
 		margin-bottom: 2em;
 		margin-left: 2em;
 		margin-right: 2em;
-		
+
 	}
 
 	.calanderImg img{
 		margin-bottom: 4em;
 		margin-top: 1em;
-		
+
 	}
 
 	.aboutBlock {
