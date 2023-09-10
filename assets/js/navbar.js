@@ -25,7 +25,6 @@ var header = ""
 +  '					<li><a href="resources.html#resume-book">Résumé Book</a></li>'
 +  '					<li><a href="resources.html#become-member">Become a Member</a></li>'
 +  '					<li><a href="resources.html#join-mentorship">Mentorship</a></li>'
-+  '					<li><a href="resources.html#lockers">Lockers</a></li>'
 +  '					<li><a href="resources.html#hr-contact">HR Contact</a></li>'
 +  '					<li><a href="faq.html">ACM FAQ</a></li>'
 // +  '					<li><a href="elections.html">2021/2022 Election</a></li>'
