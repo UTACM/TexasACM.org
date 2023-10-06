@@ -3874,6 +3874,11 @@
 		top: 0;
 		width: 100%;
 		z-index: 10000;
+		transition: top 0.3s; /*Added for the Scrolling Header*/
+	}
+
+	#header.hide { /*Added for the Scrolling Header*/
+		top: -4em; /* Adjust as needed to fully hide the header */
 	}
 
 	#header h1 {
