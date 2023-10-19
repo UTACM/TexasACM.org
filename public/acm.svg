@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Avenir-Medium, Avenir;
+        font-size: 282.79px;
+        font-weight: 500;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #1e7193;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-miterlimit: 10;
+        stroke-width: 26px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        stroke: #c15b05;
+      }
+    </style>
+  </defs>
+  <rect id="outer_rectangle" class="cls-3" x="164.81" y="164.81" width="694.38" height="694.38" transform="translate(-212.08 512) rotate(-45)"/>
+  <circle id="inner_circle" class="cls-2" cx="512" cy="512" r="291"/>
+  <text id="text" class="cls-1" transform="translate(253 578.88)"><tspan x="0" y="0">acm</tspan></text>
+</svg>

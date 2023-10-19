@@ -1,0 +1,44 @@
+{
+  "name": "texasacm-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.4",
+    "next": "^13.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.68.0"
+  },
+  "devDependencies": {
+    "@iconify-json/heroicons-solid": "^1.1.8",
+    "@types/node": "^20.7.0",
+    "@types/react": "^18.2.23",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "@unocss/eslint-config": "^0.56.4",
+    "@unocss/postcss": "^0.56.4",
+    "@unocss/reset": "^0.56.4",
+    "@unocss/webpack": "^0.56.4",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.50.0",
+    "eslint-config-next": "^13.5.3",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "postcss": "^8.4.30",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "unocss": "^0.56.4"
+  }
+}
