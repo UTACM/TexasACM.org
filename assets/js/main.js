@@ -364,3 +364,20 @@ window.addEventListener("hashchange", shiftWindow);
 function load() {
 	if (window.location.hash) shiftWindow();
 }
+
+// Functionality for the scrolling header
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop){
+        // When scrolling down
+        document.getElementById('header').classList.add('hide');
+    } else {
+        // When scrolling up
+        document.getElementById('header').classList.remove('hide');
+    }
+    
+    lastScrollTop = scrollTop;
+});
